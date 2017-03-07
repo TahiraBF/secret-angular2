@@ -25,17 +25,6 @@ export class SessionService implements CanActivate {
       }
   }
 
-  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (localStorage.getItem('token')) {
-      // logged in so return true\
-      return true;
-    }
-    // not logged in so redirect to login page
-    this.router.navigate(['/login']);
-    this.isAuth.emit(true);
-    return false;
-  }
-
   isAuthenticated() {
     return this.token != null ? true : false;
   }
@@ -60,6 +49,18 @@ export class SessionService implements CanActivate {
   		})
   		.catch((err) => Observable.throw(err));
   }
+
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (localStorage.getItem('token')) {
+      // logged in so return true\
+      return true;
+    }
+    // not logged in so redirect to login page
+    this.router.navigate(['/login']);
+    this.isAuth.emit(true);
+    return false;
+  }
+
 
   login(user) {
     return this.http.post(`${this.BASE_URL}/login`, user)
