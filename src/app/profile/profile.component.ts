@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ProfileService   } from '../services/profile.service';
-import { SessionService   } from '../services/session.service';
+import { Component, OnInit      } from '@angular/core';
+import { ProfileService         } from '../services/profile.service';
+import { SessionService         } from '../services/session.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FileUploader           } from "ng2-file-upload";
+
 
 
 @Component({
@@ -14,6 +16,10 @@ export class ProfileComponent implements OnInit {
   userId;
   user: any;
   userTwo: any;
+  pendingUsers: any;
+  secrets: any;
+
+
   constructor(
     private profile : ProfileService,
     private route  : ActivatedRoute,
@@ -21,28 +27,50 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     if (this.session.user){
       console.log('asd', this.session.user)
-      this.userTwo = this.session.user;
+      this.user = this.session.user;
     }
-    this.route.params
-        .subscribe((params)=> {
-          this.userId = params['id'];
-          this.getEntryById(this.userId);
-          console.log("params", this.route.params);
+    this.getPendingUsers()
+    // this.getSecrets()
+    // this.route.params
+    //     .subscribe((params)=> {
+    //       this.userId = params['id'];
+    //       this.getEntryById(this.userId);
+    //       console.log("params", this.route.params['id']);
+        // })
+  };
 
-        })
+  getPendingUsers() {
+    this.profile.getProfile()
+      .subscribe((pendingUsers)=> {
+        this.pendingUsers = pendingUsers;
+        console.log("pending:", this.pendingUsers);
+      })
   }
 
-  getEntryById(id){
-    this.profile.getById(id)
-    .subscribe((user)=> {
-      this.user = user;
-      console.log("user:", user);
+  // getSecrets() {
+  //   this.profile.getProfile()
+  //     .subscribe((secrets)=> {
+  //       this.secrets = secrets;
+  //       console.log("secrets:", this.secrets);
+  //
+  //     })
+  // }
 
-    })
-  }
+
+
+
+
+
+  // getEntryById(id){
+  //   this.profile.getById(id)
+  //   .subscribe((user)=> {
+  //     this.userTwo = user;
+  //     console.log("user:", user);
+  //
+  //   })
+  // }
 
 
 

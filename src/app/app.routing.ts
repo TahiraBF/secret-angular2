@@ -18,7 +18,7 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
-    { path: 'api/profile/:id', component: ProfileComponent, canActivate: [SessionService] },
+    { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService] },
     { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
     // { path: '**', redirectTo: '' }
 ];

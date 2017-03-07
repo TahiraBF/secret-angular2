@@ -15,8 +15,7 @@ export class ProfileService {
     private SessionService: SessionService
   ) { }
 
-  getUser() {
-
+  getProfile() {
     let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
     let options = new RequestOptions({ headers: headers });
     return this.http.get(`${this.BASE_URL}/api/profile`, options)
