@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+	newUser = {
+    username: '',
+    password: '',
+    name: '',
+    travellerType: '',
+    description: '',
+    foundUsHow: '',
+    isDisclaimer: '',
+    referredBy: ''
+  };
+
+  user: any;
+  error: string;
+
+
+  constructor(
+  	private session: SessionService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  signup() {
+  	this.session.signup(this.newUser)
+      .subscribe(result => {
+          if (result === true) {
+              // login successful
+              console.log('result ok', result);
+              this.router.navigate(['/profile']);
+          } else {
+          		console.log('result ko', result);
+              // login failed
+              // this.error = 'Username or password is incorrect';
+          }
+      });
+  }
 }
