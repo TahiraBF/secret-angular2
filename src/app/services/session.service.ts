@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class SessionService implements CanActivate {
   public token: string;
+  public user: any;
   isAuth: EventEmitter<any> = new EventEmitter();
 
 	BASE_URL: string = 'http://localhost:3000';
@@ -18,6 +19,7 @@ export class SessionService implements CanActivate {
   ) {
       // set token if saved in local storage
       this.token = localStorage.getItem('token');
+      this.user = JSON.parse(localStorage.getItem('user'));
       if (this.token != null) {
         this.isAuth.emit(true);
       } else {
@@ -37,8 +39,10 @@ export class SessionService implements CanActivate {
   			if (token) {
           // set token property
           this.token = token;
+          this.user = response.user;
           // store username and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('token', token );
+          localStorage.setItem('user', JSON.stringify(response.user) );
           this.isAuth.emit(true);
           // return true to indicate successful login
           return true;
@@ -70,9 +74,11 @@ export class SessionService implements CanActivate {
             if (token) {
               // set token property
               this.token = token;
+              this.user = response.json().user;
               this.isAuth.emit(true);
               // store username and jwt token in local storage to keep user logged in between page refreshes
               localStorage.setItem('token', token );
+              localStorage.setItem('user', JSON.stringify(response.json().user) );
               // return true to indicate successful login
               return true;
             } else {
@@ -87,6 +93,7 @@ export class SessionService implements CanActivate {
       this.token = null;
       this.isAuth.emit(false);
       localStorage.removeItem('token');
+      localStorage.removeItem("user");
       this.router.navigate(['/login']);
   }
 }

@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
 import { SessionService } from './services/session.service';
 import { IsAdminService } from './services/is-admin.service';
+import { ProfileService   } from './services/profile.service';
+
 
 
 
@@ -31,7 +33,7 @@ import { AdminComponent } from './admin/admin.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, IsAdminService],
+  providers: [SessionService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

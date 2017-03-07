@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IsAdminService   } from '../services/is-admin.service';
+import { ProfileService   } from '../services/profile.service';
+import { SessionService   } from '../services/session.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,19 +11,39 @@ import { IsAdminService   } from '../services/is-admin.service';
 })
 export class ProfileComponent implements OnInit {
 
-  admin;
-
+  userId;
+  user: any;
+  userTwo: any;
   constructor(
-    private isAdmin : IsAdminService
+    private profile : ProfileService,
+    private route  : ActivatedRoute,
+    private session: SessionService,
   ) { }
 
   ngOnInit() {
+
+    if (this.session.user){
+      console.log('asd', this.session.user)
+      this.userTwo = this.session.user;
+    }
+    this.route.params
+        .subscribe((params)=> {
+          this.userId = params['id'];
+          this.getEntryById(this.userId);
+          console.log("params", this.route.params);
+
+        })
   }
 
-  checkRole(){
-    this.isAdmin.getRole()
-      .subscribe((admin) => {
-        this.admin = admin;
-      });
+  getEntryById(id){
+    this.profile.getById(id)
+    .subscribe((user)=> {
+      this.user = user;
+      console.log("user:", user);
+
+    })
   }
+
+
+
 }
