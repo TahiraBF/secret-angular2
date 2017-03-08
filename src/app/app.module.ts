@@ -11,9 +11,6 @@ import { ProfileService} from './services/profile.service';
 import { FileSelectDirective  } from "ng2-file-upload";
 
 
-
-
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -39,12 +36,9 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     AdminComponent,
     ApproveUserComponent,
     SecretsComponent,
-<<<<<<< HEAD
-    AddSecretComponent
-=======
+    AddSecretComponent,
     FileSelectDirective,
     ProfileEditComponent
->>>>>>> bf6f4b387e96e355db7b43a2ce54878e49842b88
   ],
   imports: [
     BrowserModule,
