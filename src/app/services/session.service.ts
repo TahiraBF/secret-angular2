@@ -94,8 +94,9 @@ export class SessionService implements CanActivate {
      this.router.navigate(['/login']);
  }
 
- // getAdmin(user) {
- //      return this.http.post(`${this.BASE_URL}/admin`, user)
- //
- // }
+ getAdmin(user) {
+      return this.http.post(`${this.BASE_URL}/admin`, user)
+      .map((res) => res.json());
+
+ }
 }

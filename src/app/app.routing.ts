@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [SessionService] },
-    // { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
+    { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
     // { path: 'phone/:id', component: PhoneDetailsComponent, canActivate: [SessionService] },
     // { path: '**', redirectTo: '' }
 ];

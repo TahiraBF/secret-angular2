@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IsAdminService   } from '../services/is-admin.service';
-
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,19 +9,18 @@ import { IsAdminService   } from '../services/is-admin.service';
 })
 export class ProfileComponent implements OnInit {
 
-  admin;
+
 
   constructor(
-    private isAdmin : IsAdminService
+    private session : SessionService
   ) { }
 
   ngOnInit() {
   }
 
-  checkRole(){
-    this.isAdmin.getRole()
-      .subscribe((admin) => {
-        this.admin = admin;
-      });
-  }
+  // checkRole(){
+  //   this.isAdmin.getRole()
+  //     .subscribe((admin) => {
+  //       this.admin = admin;
+  //     });
 }
