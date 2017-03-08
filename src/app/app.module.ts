@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
-import { routes } from './app.routing';
-import { SessionService } from './services/session.service';
-import { IsAdminService } from './services/is-admin.service';
+import { NgModule      } from '@angular/core';
+import { FormsModule   } from '@angular/forms';
+import { HttpModule    } from '@angular/http';
+import { RouterModule  } from '@angular/router';
+import { routes        } from './app.routing';
+import { SessionService} from './services/session.service';
+import { IsAdminService} from './services/is-admin.service';
+import { ProfileService} from './services/profile.service';
+import { FileSelectDirective  } from "ng2-file-upload";
+
+
 
 
 
@@ -31,7 +35,7 @@ import { AdminComponent } from './admin/admin.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, IsAdminService],
+  providers: [SessionService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

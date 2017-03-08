@@ -1,6 +1,13 @@
 <div class="jumbotron">
-  <p>
-    profile works!
-  </p>
-    <p><a class="btn btn-primary btn-lg" [routerLink]="['/admin']" role="button">Admin</a></p>
+    <img id="profile-avatar" src="http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-foxy-fox.png" alt="">
+    <h3>{{ user.username }}</h3>
+    <p> {{ user.name }} </p>
+    <p> {{ user.travellerType }} </p>
+    <p> {{ user.description }} </p>
+</div>
+
+<p *ngIf=" user.role === 'Admin'"><a class="btn btn-primary btn-lg" [routerLink]="['/admin']" role="button">Admin</a></p>
+
+<div>
+  <p> {{pendingUsers}} </p>
 </div>
