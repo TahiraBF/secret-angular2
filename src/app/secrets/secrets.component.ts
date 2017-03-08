@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./secrets.component.css']
 })
 export class SecretsComponent implements OnInit {
-  secrets;
+  secrets: any;
 
   constructor(
     private secret : SecretsService,

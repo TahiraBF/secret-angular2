@@ -5,6 +5,7 @@ import { HttpModule    } from '@angular/http';
 import { RouterModule  } from '@angular/router';
 import { routes        } from './app.routing';
 import { SessionService} from './services/session.service';
+import { SecretsService} from './services/secrets.service';
 import { IsAdminService} from './services/is-admin.service';
 import { ProfileService} from './services/profile.service';
 import { FileSelectDirective  } from "ng2-file-upload";
@@ -40,7 +41,7 @@ import { SecretsComponent } from './secrets/secrets.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, ProfileService],
+  providers: [SessionService, ProfileService, SecretsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
