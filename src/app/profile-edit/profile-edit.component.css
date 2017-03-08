@@ -1,0 +1,7 @@
+* {
+  margin: auto 1%;
+}
+
+ng-submitted {
+  display: none;
+}

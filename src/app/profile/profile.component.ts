@@ -18,7 +18,8 @@ export class ProfileComponent implements OnInit {
   user: any;
   userTwo: any;
   pendingUsers: any;
-  secrets: any;
+  feedback : string;
+
 
   newUser = {
     username      : " ",
@@ -48,4 +49,8 @@ export class ProfileComponent implements OnInit {
         this.pendingUsers = pendingUsers;
       })
   }
+
+
+
+
 }

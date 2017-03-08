@@ -1,5 +1,33 @@
+* {
+  margin-left: 1%;
+  margin-right: 1%;
+
+}
+
 
 #profile-avatar {
   width: 10%;
   /*height: 50%;*/
+}
+
+#approvalBox {
+
+}
+
+li {
+  list-style: none;
+}
+
+.displayTease {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.labell {
+  font-weight: normal;
+
+}
+
+.profileBox {
+  padding-top: 15px;
 }

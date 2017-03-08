@@ -22,7 +22,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { SecretsComponent } from './secrets/secrets.component';
+
 import { AddSecretComponent } from './add-secret/add-secret.component';
+
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+
 
 
 @NgModule({
@@ -35,7 +39,12 @@ import { AddSecretComponent } from './add-secret/add-secret.component';
     AdminComponent,
     ApproveUserComponent,
     SecretsComponent,
+<<<<<<< HEAD
     AddSecretComponent
+=======
+    FileSelectDirective,
+    ProfileEditComponent
+>>>>>>> bf6f4b387e96e355db7b43a2ce54878e49842b88
   ],
   imports: [
     BrowserModule,
