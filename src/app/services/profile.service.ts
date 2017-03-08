@@ -37,6 +37,13 @@ export class ProfileService {
   return this.http.post(`${this.BASE_URL}/api/profile/${id}`, newUser, options).subscribe((res => console.log('succes')));
   }
 
+  remove(id) {
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.delete(`${this.BASE_URL}/api/profile/${id}`, options)
+      .map((res) => res.json());
+  }
+
 //   edit(phone) {
 //   let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
 //   let options = new RequestOptions({ headers: headers });

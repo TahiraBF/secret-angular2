@@ -17,7 +17,9 @@ export class ApproveUserComponent implements OnInit {
   constructor(
     private profile : ProfileService,
     private route  : ActivatedRoute,
-    private session: SessionService
+    private session: SessionService,
+    private router: Router
+
   ) { }
 
   ngOnInit() {
@@ -40,7 +42,15 @@ export class ApproveUserComponent implements OnInit {
 
   approvedUser(){
     this.profile.approveUser(this.userId, this.user);
-    console.log("approve clicked");
-      }
+  }
+
+  deleteUser() {
+  if (window.confirm('Are you sure?')) {
+    this.profile.remove(this.userId)
+    .subscribe(() => {
+      this.router.navigate(['/api/profile']);
+    });
+  }
+}
 
 }
