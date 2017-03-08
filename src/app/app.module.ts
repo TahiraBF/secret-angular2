@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
+import { SecretsComponent } from './secrets/secrets.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    AdminComponent
+    AdminComponent,
+    SecretsComponent
   ],
   imports: [
     BrowserModule,
