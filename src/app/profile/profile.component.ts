@@ -13,17 +13,13 @@ import { FileUploader           } from "ng2-file-upload";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/api/profile/`,
-    authToken: `JWT ${this.session.token}`
-  });
 
   userId;
   user: any;
   userTwo: any;
   pendingUsers: any;
-  secrets: any;
   feedback : string;
+
 
   newUser = {
     username      : " ",
@@ -44,16 +40,6 @@ export class ProfileComponent implements OnInit {
       this.user = this.session.user;
     }
     this.getPendingUsers()
-
-    this.uploader.onSuccessItem = (item, response) => {
-      this.feedback = JSON.parse(response).message;
-      console.log("uploader item");
-    };
-
-    this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).message;
-      console.log("uploader error");
-    };
   };
 
 
@@ -64,10 +50,7 @@ export class ProfileComponent implements OnInit {
       })
   }
 
-  update() {
-    this.profile.edit(this.user).subscribe((res) => {
-      console.log("hola", res);
-    });
-  }
+
+
 
 }

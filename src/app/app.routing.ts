@@ -11,6 +11,7 @@ import { IsAdminService   } from './services/is-admin.service';
 import { ProfileService   } from './services/profile.service';
 import { SecretsService   } from './services/secrets.service';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 import { AdminComponent } from './admin/admin.component';
 
@@ -21,7 +22,11 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
-    { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService] },
+    { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
+    children:[
+      {path: 'edit', component: ProfileEditComponent, canActivate: [SessionService] }
+    ]
+   },
     { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
     { path: 'api/secrets', component: SecretsComponent },
     // { path: 'admin', component: AdminComponent, canActivate: [SessionService]}

@@ -8,8 +8,10 @@
     <p> {{ user.travellerType }} </p>
     <h4 class="labell"> About {{user.name}}</h4>
     <p> {{ user.description }} </p>
-    <button>Edit</button>
+    <a [routerLink]="['edit']"> Edit </a>
 </div>
+
+<router-outlet></router-outlet>
 
 <div *ngIf=" user.role === 'Admin'" id="approvalBox" >
   <h4>Members Pending Approval</h4>
@@ -19,24 +21,3 @@
     <a [routerLink]="['/api/profile/', pendingUser._id]">View more</a>
   </p>
 </div>
-
-<form>
-  <fieldset>
-    <input type="text" [(ngModel)]="user._id" name="userId" class="hide" />
-
-    <label> Email </label>
-    <input type="email" [(ngModel)]="user.username" name="username" />
-
-    <label> Name </label>
-    <input type="text" [(ngModel)]="user.name" name="name" />
-
-    <label> Type of Traveller </label>
-    <input type="text" [(ngModel)]="user.travellerType" name="travellerType" />
-
-    <label> About </label>
-  <textarea type="text" name="content"  [(ngModel)]="user.description"></textarea>
-    <!-- <input type="file" name="file" ng2FileSelect [uploader]="uploader" /> -->
-
-  </fieldset>
-  <button (click)="update()"> Update </button>
-</form>
