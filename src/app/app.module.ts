@@ -22,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { SecretsComponent } from './secrets/secrets.component';
+import { AddSecretComponent } from './add-secret/add-secret.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SecretsComponent } from './secrets/secrets.component';
     ProfileComponent,
     AdminComponent,
     ApproveUserComponent,
-    SecretsComponent
+    SecretsComponent,
+    AddSecretComponent
   ],
   imports: [
     BrowserModule,

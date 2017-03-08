@@ -21,4 +21,10 @@ export class SecretsService {
       .map((res) => res.json());
   }
 
+  addSecret(newSecret) {
+    console.log("secret", newSecret);
+    return this.http.post(`${this.BASE_URL}/api/secrets/add`, newSecret)
+      .map((res) => res.json());
+  }
+
 }

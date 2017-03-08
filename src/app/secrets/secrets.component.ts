@@ -10,18 +10,28 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SecretsComponent implements OnInit {
   secrets: any;
+  user: any
 
   constructor(
     private secret : SecretsService,
-    private route  : ActivatedRoute
+    private route  : ActivatedRoute,
+    private session: SessionService
   ) { }
 
   ngOnInit() {
-    this.secret.getSecret()
-    .subscribe((secrets) => {
-      this.secrets = secrets
-    });
+    if (this.session.user){
+      this.user = this.session.user;
+    }
+    this.showSecrets()
 
   }
+
+showSecrets() {
+  this.secret.getSecret()
+  .subscribe((secrets) => {
+    this.secrets = secrets
+  });
+}
+
 
 }

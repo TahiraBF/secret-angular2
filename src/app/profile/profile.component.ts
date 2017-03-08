@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { IsAdminService   } from '../services/is-admin.service';
+import { Component, OnInit      } from '@angular/core';
+import { IsAdminService         } from '../services/is-admin.service';
 import { ProfileService         } from '../services/profile.service';
 import { SessionService         } from '../services/session.service';
 import { Router, ActivatedRoute } from '@angular/router';
