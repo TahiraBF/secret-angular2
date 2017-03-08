@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
+import { ApproveUserComponent } from './approve-user/approve-user.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    AdminComponent
+    AdminComponent,
+    ApproveUserComponent
   ],
   imports: [
     BrowserModule,

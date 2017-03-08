@@ -6,8 +6,16 @@
     <p> {{ user.description }} </p>
 </div>
 
-<p *ngIf=" user.role === 'Admin'"><a class="btn btn-primary btn-lg" [routerLink]="['/admin']" role="button">Admin</a></p>
+<!-- <p ><a class="btn btn-primary btn-lg" [routerLink]="['/admin']" role="button">Admin</a></p> -->
+<div *ngIf=" user.role === 'Admin'">
+  <div *ngFor="let pendingUser of pendingUsers" class="jumbotron">
 
-<div>
-  <p> {{pendingUsers}} </p>
+      <li class="PUemail"> Email : {{pendingUser.username}} </li>
+      <li class="PUname"> Name :{{pendingUser.name}}</li>
+      <!-- <li class="PUtravellerType"> Traveller Type :{{pendingUser.travellerType}}</li>
+      <li class="PUdescription"> Description :{{pendingUser.description}}</li>
+      <li class="PUfoundUs"> How did you find us? :{{pendingUser.foundUsHow}}</li>
+      <li class="PUreferredBy"> Referred by user? :{{pendingUser.referredBy}}</li> -->
+      <a [routerLink]="['/api/profile/', pendingUser._id]">View more</a>
+  </div>
 </div>

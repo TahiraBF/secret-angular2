@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SessionService   } from './services/session.service';
 import { IsAdminService   } from './services/is-admin.service';
 import { ProfileService   } from './services/profile.service';
+import { ApproveUserComponent } from './approve-user/approve-user.component';
 
 import { AdminComponent } from './admin/admin.component';
 
@@ -19,6 +20,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService] },
-    { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
+    { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
+    // { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
     // { path: '**', redirectTo: '' }
 ];

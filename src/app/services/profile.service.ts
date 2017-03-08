@@ -29,4 +29,12 @@ export class ProfileService {
     .map((res) => res.json());
 }
 
+  approveUser(newUser: any) {
+  console.log(newUser);
+  let body = JSON.stringify(newUser);
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+  let options = new RequestOptions({ headers: headers });
+  return this.http.post(`${this.BASE_URL}/api/profile`, body).subscribe((res => console.log('succes')));
+  }
+
 }

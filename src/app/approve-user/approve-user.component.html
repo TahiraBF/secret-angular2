@@ -1,0 +1,11 @@
+<p>
+  approve-user works!
+</p>
+<div class="jumbotron" *ngIf="user">
+  <h3 class="PUemail"> Email: {{user.username}} </h3>
+  <p> Name: {{user.name}} </p>
+  <p> Type of Traveller: {{user.travellerType}} </p>
+  <p> Description: {{user.description}} </p>
+  <p> How did you hear about us?: {{user.foundUsHow}} </p>
+  <button click="approvedUser()">Approve User</button>
+</div>

@@ -19,59 +19,31 @@ export class ProfileComponent implements OnInit {
   pendingUsers: any;
   secrets: any;
 
+  newUser = {
+    username      : " ",
+    password      : " ",
+    name          : " ",
+    travellerType : " ",
+    description   : " "
+  }
 
   constructor(
     private profile : ProfileService,
     private route  : ActivatedRoute,
-    private session: SessionService,
+    private session: SessionService
   ) { }
 
   ngOnInit() {
     if (this.session.user){
-      console.log('asd', this.session.user)
       this.user = this.session.user;
     }
     this.getPendingUsers()
-    // this.getSecrets()
-    // this.route.params
-    //     .subscribe((params)=> {
-    //       this.userId = params['id'];
-    //       this.getEntryById(this.userId);
-    //       console.log("params", this.route.params['id']);
-        // })
   };
 
   getPendingUsers() {
     this.profile.getProfile()
       .subscribe((pendingUsers)=> {
         this.pendingUsers = pendingUsers;
-        console.log("pending:", this.pendingUsers);
       })
   }
-
-  // getSecrets() {
-  //   this.profile.getProfile()
-  //     .subscribe((secrets)=> {
-  //       this.secrets = secrets;
-  //       console.log("secrets:", this.secrets);
-  //
-  //     })
-  // }
-
-
-
-
-
-
-  // getEntryById(id){
-  //   this.profile.getById(id)
-  //   .subscribe((user)=> {
-  //     this.userTwo = user;
-  //     console.log("user:", user);
-  //
-  //   })
-  // }
-
-
-
 }
