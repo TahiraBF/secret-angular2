@@ -1,21 +1,42 @@
-<div class="jumbotron">
+<div class="jumbotron profileBox" >
     <img id="profile-avatar" src="http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-foxy-fox.png" alt="">
-    <h3>{{ user.username }}</h3>
+    <h4 class="labell"> Username/Email </h4>
+    <p>{{ user.username }}</p>
+    <h4 class="labell"> Name </h4>
     <p> {{ user.name }} </p>
+    <h4 class="labell"> Traveller Type</h4>
     <p> {{ user.travellerType }} </p>
+    <h4 class="labell"> About {{user.name}}</h4>
     <p> {{ user.description }} </p>
+    <button>Edit</button>
 </div>
 
-<!-- <p ><a class="btn btn-primary btn-lg" [routerLink]="['/admin']" role="button">Admin</a></p> -->
-<div *ngIf=" user.role === 'Admin'">
-  <div *ngFor="let pendingUser of pendingUsers" class="jumbotron">
-
-      <li class="PUemail"> Email : {{pendingUser.username}} </li>
-      <li class="PUname"> Name :{{pendingUser.name}}</li>
-      <!-- <li class="PUtravellerType"> Traveller Type :{{pendingUser.travellerType}}</li>
-      <li class="PUdescription"> Description :{{pendingUser.description}}</li>
-      <li class="PUfoundUs"> How did you find us? :{{pendingUser.foundUsHow}}</li>
-      <li class="PUreferredBy"> Referred by user? :{{pendingUser.referredBy}}</li> -->
-      <a [routerLink]="['/api/profile/', pendingUser._id]">View more</a>
-  </div>
+<div *ngIf=" user.role === 'Admin'" id="approvalBox" >
+  <h4>Members Pending Approval</h4>
+  <p *ngFor="let pendingUser of pendingUsers" class="jumbotron displayTease">
+    <li class="PUemail"> Email : {{pendingUser.username}} </li>
+    <li class="PUname"> Name :{{pendingUser.name}}</li>
+    <a [routerLink]="['/api/profile/', pendingUser._id]">View more</a>
+  </p>
 </div>
+
+<form>
+  <fieldset>
+    <input type="text" [(ngModel)]="user._id" name="userId" class="hide" />
+
+    <label> Email </label>
+    <input type="email" [(ngModel)]="user.username" name="username" />
+
+    <label> Name </label>
+    <input type="text" [(ngModel)]="user.name" name="name" />
+
+    <label> Type of Traveller </label>
+    <input type="text" [(ngModel)]="user.travellerType" name="travellerType" />
+
+    <label> About </label>
+  <textarea type="text" name="content"  [(ngModel)]="user.description"></textarea>
+    <!-- <input type="file" name="file" ng2FileSelect [uploader]="uploader" /> -->
+
+  </fieldset>
+  <button (click)="update()"> Update </button>
+</form>

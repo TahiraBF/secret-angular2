@@ -33,7 +33,8 @@ import { SecretsComponent } from './secrets/secrets.component';
     ProfileComponent,
     AdminComponent,
     ApproveUserComponent,
-    SecretsComponent
+    SecretsComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
