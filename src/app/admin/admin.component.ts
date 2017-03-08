@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IsAdminService } from '../services/is-admin.service';
 import { Router} from '@angular/router';
+import { SessionService } from '../services/session.service';
 
 
 @Component({
