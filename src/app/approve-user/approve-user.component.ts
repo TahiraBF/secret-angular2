@@ -11,17 +11,22 @@ import { ProfileService         } from '../services/profile.service';
 export class ApproveUserComponent implements OnInit {
 
   user: any;
+  userId;
 
 
   constructor(
     private profile : ProfileService,
     private route  : ActivatedRoute,
-    private session: SessionService
+    private session: SessionService,
+    private router: Router
+
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.getEntryById(params['id']);
+    this.route.params
+      .subscribe(params => {
+        this.userId = params['id']
+      this.getEntryById(this.userId);
       // console.log("user2:", this.user);
     });
 
@@ -36,7 +41,16 @@ export class ApproveUserComponent implements OnInit {
   }
 
   approvedUser(){
-    this.profile.approveUser(this.user);
-      }
+    this.profile.approveUser(this.userId, this.user);
+  }
+
+  deleteUser() {
+  if (window.confirm('Are you sure?')) {
+    this.profile.remove(this.userId)
+    .subscribe(() => {
+      this.router.navigate(['/api/profile']);
+    });
+  }
+}
 
 }
