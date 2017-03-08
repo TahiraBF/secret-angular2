@@ -12,9 +12,13 @@
     <input type="text" [(ngModel)]="user.travellerType" name="travellerType" class="form-control"/>
 
     <label> About </label>
-    <textarea type="text" name="content"  [(ngModel)]="user.description" class="form-control"></textarea>
+    <textarea type="text" name="description"  [(ngModel)]="user.description" class="form-control"></textarea>
+    <div class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+      <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+    </div>
 
-    <!-- <input type="file" name="file" ng2FileSelect [uploader]="uploader" /> -->
     <button (click)="update()" (click)="toggle()" class="btn btn-primary" ng-submit="submit()"> Update </button>
   </div>
   </fieldset>

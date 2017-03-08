@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
       this.user = this.session.user;
     }
     this.getPendingUsers()
+    console.log(this.user);
   };
 
 

@@ -1,5 +1,5 @@
 <div class="jumbotron profileBox" >
-    <img id="profile-avatar" src="http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-foxy-fox.png" alt="">
+  <figure *ngIf="user.profilePic"><img class="profile-avatar" src="{{user.profilePic}}"></figure>
     <h4 class="labell"> Username/Email </h4>
     <p>{{ user.username }}</p>
     <h4 class="labell"> Name </h4>

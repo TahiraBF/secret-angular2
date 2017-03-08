@@ -34,7 +34,7 @@ export class ProfileEditComponent implements OnInit {
 
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = JSON.parse(response).message;
-      console.log("uploader item");
+      console.log("uploaded item");
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
@@ -48,7 +48,10 @@ export class ProfileEditComponent implements OnInit {
     this.profile.edit(this.user).subscribe((res) => {
       console.log("hola", res);
     });
+    this.uploader.onBuildItemForm = (item, form) => {
+    };
 
+    this.uploader.uploadAll();
   }
 
   toggle() {
