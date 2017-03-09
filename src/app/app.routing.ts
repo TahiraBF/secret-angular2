@@ -32,8 +32,8 @@ export const routes: Routes = [
     ]
    },
     { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
-    { path: 'api/secrets', component: SecretsComponent },
-    { path: 'api/secrets/add', component: AddSecretComponent },
+    { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService] },
+    { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
     // { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
     // { path: '**', redirectTo: '' }
 ];
