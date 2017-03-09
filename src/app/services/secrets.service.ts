@@ -21,13 +21,4 @@ export class SecretsService {
       .map((res) => res.json());
   }
 
-  addSecret(newSecret) {
-    console.log("secret", newSecret);
-    let body = JSON.stringify(newSecret);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.post(`${this.BASE_URL}/api/secrets/add`, newSecret, options)
-      .subscribe((res => console.log('succes')));
-  }
-
 }
