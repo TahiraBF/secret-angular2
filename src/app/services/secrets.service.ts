@@ -11,7 +11,7 @@ export class SecretsService {
 
   constructor(
     private http: Http,
-    private SessionService: SessionService
+    private SessionService: SessionService,
   ) { }
 
   getSecret() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { SessionService    } from '../services/session.service';
 import { SecretsService    } from '../services/secrets.service';
 import { Router            } from '@angular/router';
@@ -29,13 +29,13 @@ export class AddSecretComponent implements OnInit {
 
   constructor(
     private secret : SecretsService,
-    private router : Router,
+    private router : Router
   ) { }
 
   ngOnInit() {
     this.uploader.onSuccessItem = (item, res) => {
       this.feedback = JSON.parse(res).message;
-      console.log("success");
+      this.router.navigate(['/api/secrets']);
     }
 
     this.uploader.onErrorItem = (item, res, status, headers) => {
@@ -44,6 +44,7 @@ export class AddSecretComponent implements OnInit {
     }
 
   }
+
 
   addNewSecret() {
     this.uploader.onBuildItemForm = (item, form) => {
@@ -56,7 +57,7 @@ export class AddSecretComponent implements OnInit {
 
     };
     this.uploader.uploadAll();
-    this.router.navigate(['/api/secrets']);
+
   }
 
 }

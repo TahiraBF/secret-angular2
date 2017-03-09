@@ -1,4 +1,4 @@
-import { Component, OnInit      } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { SecretsService         } from '../services/secrets.service';
 import { SessionService         } from '../services/session.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,22 +15,33 @@ export class SecretsComponent implements OnInit {
   constructor(
     private secret : SecretsService,
     private route  : ActivatedRoute,
-    private session: SessionService
+    private session: SessionService,
+    private ngZone: NgZone
+
   ) { }
 
   ngOnInit() {
     if (this.session.user){
       this.user = this.session.user;
     }
+    console.log("ngOnInit");
     this.showSecrets()
+  }
 
+  ngOnChanges() {
+    console.log('ngOnChanges');
   }
 
 showSecrets() {
   this.secret.getSecret()
-  .subscribe((secrets) => {
-    this.secrets = secrets
-  });
+    .subscribe((secrets) => {
+      console.log("showSecrets function", secrets)
+      this.ngZone.run(()=>{
+          this.secrets = secrets
+      })
+
+    });
+
 }
 
 
