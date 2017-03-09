@@ -37,12 +37,11 @@ export class AddSecretComponent implements OnInit {
   ngOnInit() {
     this.uploader.onSuccessItem = (item, res) => {
       this.feedback = JSON.parse(res).message;
-      console.log("success");
+      this.router.navigate(['/api/secrets']);
     }
 
     this.uploader.onErrorItem = (item, res, status, headers) => {
       this.feedback = JSON.parse(res).message;
-      console.log("error");
     }
 
   }
@@ -58,7 +57,6 @@ export class AddSecretComponent implements OnInit {
 
     };
     this.uploader.uploadAll();
-    this.router.navigate(['/api/secrets']);
   }
 
 }
