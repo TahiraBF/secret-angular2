@@ -42,7 +42,6 @@ export class AddSecretComponent implements OnInit {
       this.feedback = JSON.parse(res).message;
       console.log("error");
     }
-
   }
 
 

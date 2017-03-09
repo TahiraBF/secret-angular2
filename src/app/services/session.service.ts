@@ -19,7 +19,7 @@ export class SessionService implements CanActivate {
   ) {
       // set token if saved in local storage
       this.token = localStorage.getItem('token');
-      this.user = JSON.parse(localStorage.getItem('user'));
+      this.user = localStorage.getItem('user');
       if (this.token != null) {
         this.isAuth.emit(true);
       } else {
