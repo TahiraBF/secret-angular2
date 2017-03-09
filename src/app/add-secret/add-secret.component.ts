@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { SessionService    } from '../services/session.service';
 import { SecretsService    } from '../services/secrets.service';
 import { Router            } from '@angular/router';
@@ -32,6 +32,7 @@ export class AddSecretComponent implements OnInit {
     private secret : SecretsService,
     private router : Router,
     private session: SessionService
+
   ) { }
 
   ngOnInit() {
@@ -43,8 +44,8 @@ export class AddSecretComponent implements OnInit {
     this.uploader.onErrorItem = (item, res, status, headers) => {
       this.feedback = JSON.parse(res).message;
     }
-
   }
+
 
   addNewSecret() {
     this.uploader.onBuildItemForm = (item, form) => {

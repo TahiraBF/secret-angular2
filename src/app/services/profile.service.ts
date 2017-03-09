@@ -12,18 +12,24 @@ export class ProfileService {
 
   constructor(
     private http: Http,
-    private SessionService: SessionService
-  ) { }
+    private session: SessionService
+  ) {
+    this.session.user = JSON.parse(localStorage.getItem('user'));
+  }
 
   getProfile() {
-    let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
     return this.http.get(`${this.BASE_URL}/api/profile`, options)
-      .map((res) => res.json());
+      .map((res) => {res.json().user
+        localStorage.removeItem('user')
+        localStorage.setItem('user', JSON.stringify(res.json().user))
+        console.log("res.user: ", res.json().user);
+      });
   }
 
   getById(id) {
-  let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
+  let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
   let options = new RequestOptions({ headers: headers });
   return this.http.get(`${this.BASE_URL}/api/profile/${id}`, options)
     .map((res) => res.json());
@@ -32,23 +38,27 @@ export class ProfileService {
   approveUser(id, newUser: any) {
   console.log(newUser);
   let body = JSON.stringify(newUser);
-  let headers = new Headers({ 'Content-Type': 'application/json' });
+  let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'JWT ' + this.session.token });
   let options = new RequestOptions({ headers: headers });
   return this.http.post(`${this.BASE_URL}/api/profile/${id}`, newUser, options).subscribe((res => console.log('succes')));
   }
 
   remove(id) {
-    let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
     return this.http.delete(`${this.BASE_URL}/api/profile/${id}`, options)
       .map((res) => res.json());
   }
 
   edit(user) {
-    let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
     return this.http.put(`${this.BASE_URL}/api/profile/`, user, options)
-      .map((res) => res.json());
+      .map((res) => {res.json().user;
+        localStorage.removeItem('user')
+        localStorage.setItem('user', JSON.stringify(res.json().user))
+        console.log("res.user: ", res.json().user);
+      })
   }
 
   // addReferral(referral) {
