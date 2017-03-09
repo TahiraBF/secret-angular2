@@ -32,7 +32,7 @@ export class ProfileService {
   approveUser(id, newUser: any) {
   console.log(newUser);
   let body = JSON.stringify(newUser);
-  let headers = new Headers({ 'Content-Type': 'application/json' });
+  let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'JWT ' + this.SessionService.token });
   let options = new RequestOptions({ headers: headers });
   return this.http.post(`${this.BASE_URL}/api/profile/${id}`, newUser, options).subscribe((res => console.log('succes')));
   }

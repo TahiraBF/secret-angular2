@@ -23,8 +23,11 @@ export class SecretsService {
 
   addSecret(newSecret) {
     console.log("secret", newSecret);
-    return this.http.post(`${this.BASE_URL}/api/secrets/add`, newSecret)
-      .map((res) => res.json());
+    let body = JSON.stringify(newSecret);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.BASE_URL}/api/secrets/add`, newSecret, options)
+      .subscribe((res => console.log('succes')));
   }
 
 }
