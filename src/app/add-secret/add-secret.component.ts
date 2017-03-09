@@ -11,7 +11,8 @@ import { FileUploader      } from "ng2-file-upload";
 })
 export class AddSecretComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-   url: `http://localhost:3000/api/secrets/add`
+   url: `http://localhost:3000/api/secrets/add`,
+   authToken: `JWT ${this.session.token}`
     });
 
   secrets: any;
@@ -29,7 +30,9 @@ export class AddSecretComponent implements OnInit {
 
   constructor(
     private secret : SecretsService,
-    private router : Router
+    private router : Router,
+    private session: SessionService
+
   ) { }
 
   ngOnInit() {
@@ -40,7 +43,6 @@ export class AddSecretComponent implements OnInit {
 
     this.uploader.onErrorItem = (item, res, status, headers) => {
       this.feedback = JSON.parse(res).message;
-      console.log("error");
     }
   }
 
@@ -56,7 +58,6 @@ export class AddSecretComponent implements OnInit {
 
     };
     this.uploader.uploadAll();
-
   }
 
 }
