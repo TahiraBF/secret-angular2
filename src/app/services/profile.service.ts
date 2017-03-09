@@ -24,7 +24,7 @@ export class ProfileService {
       .map((res) => {res.json().user
         localStorage.removeItem('user')
         localStorage.setItem('user', JSON.stringify(res.json().user))
-        console.log("res.user: ", res.json().user);
+        console.log("res.userget: ", res.json().user);
       });
   }
 
@@ -57,7 +57,7 @@ export class ProfileService {
       .map((res) => {res.json().user;
         localStorage.removeItem('user')
         localStorage.setItem('user', JSON.stringify(res.json().user))
-        console.log("res.user: ", res.json().user);
+        console.log("res.userput: ", res.json().user);
       })
   }
 

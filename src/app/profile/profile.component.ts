@@ -38,11 +38,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     if (this.session.user){
       this.user = this.session.user;
-      console.log("ngOnit called");
-      console.log("current info:", this.user);
     }
     this.getPendingUsers()
-    console.log(this.user);
   };
 
 
