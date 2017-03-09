@@ -11,6 +11,7 @@ import { IsAdminService   } from './services/is-admin.service';
 import { ProfileService   } from './services/profile.service';
 import { SecretsService   } from './services/secrets.service';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
+import { AddReferralComponent } from './add-referral/add-referral.component';
 
 import { AddSecretComponent } from './add-secret/add-secret.component';
 
@@ -28,12 +29,13 @@ export const routes: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
     children:[
-      {path: 'edit', component: ProfileEditComponent, canActivate: [SessionService] }
+      { path: 'edit', component: ProfileEditComponent, canActivate: [SessionService] },
+      { path: 'refer', component: AddReferralComponent, canActivate: [SessionService] }
     ]
    },
     { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
     { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService] },
-    { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
+    { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] }
     // { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
     // { path: '**', redirectTo: '' }
 ];
