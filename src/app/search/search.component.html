@@ -15,13 +15,22 @@
   <p>*{{pattern1}}*</p>
 </div>
 
-<div *ngIf="pattern1 shouldShow ">
+<!-- <div *ngIf="pattern1 shouldShow ">
   <div *ngFor="let secret of secrets | filter: searchMethod: pattern1" class="item" class="col-md-6 col-md-offset-3" class="panel panel-default">
     <div class="panel-body">
       <h3> {{ secret.where }}     </h3>
       <p> {{ secret.location }}   </p>
       <p> {{ secret.what }}       </p>
       <img [src]="secret.image" />
+      <a [routerLink]="['/api/secrets', secret._id]">Reveal Secret</a>
     </div>
+  </div>
+</div> -->
+
+<div *ngIf="pattern1 shouldShow" class="w3-row-padding w3-padding-16 w3-center" id="food">
+  <div class="w3-quarter" *ngFor="let secret of secrets | filter: searchMethod: pattern1" >
+    <img [src]="secret.image" style="width:100%">
+      <h3> {{ secret.where }} </h3>
+      <p> {{ secret.location }} | {{secret.what}} </p>
   </div>
 </div>
