@@ -2,18 +2,18 @@
   <h2>Search our secret places</h2>
   <form class="form-inline">
     <div class="input-group">
-      <input type="text" class="form-control" size="50" placeholder="Country" name="country" [(ngModel)]="country" required>
+      <input type="text" class="form-control" size="50" placeholder="Country" name="country" [(ngModel)]="pattern1" required>
       <div class="input-group-btn">
         <button type="button" class="btn btn-danger">Search</button>
       </div>
     </div>
   </form>
-  <p>**{{country}}**</p>
+  <p>**{{pattern1}}**</p>
 </div>
 
-<div *ngFor="let secret of secrets" class="item" class="col-md-6 col-md-offset-3" class="panel panel-default">
+<div *ngFor="let secret of secrets | filter:'where' : pattern1" class="item" class="col-md-6 col-md-offset-3" class="panel panel-default">
   <div class="panel-body">
-    <h3> {{ secret.where }}     </h3>
+    <h3  > {{ secret.where }}     </h3>
     <p> {{ secret.location }}   </p>
     <p> {{ secret.what }}       </p>
     <p> {{ secret.description }}</p>
@@ -22,3 +22,7 @@
     <img [src]="secret.image" />
   </div>
 </div>
+
+
+<!-- *ngFor="let thing of stuff | filter:'name':pattern; let i = index">
+        {{ i+1 }}) {{ thing.name }} -->

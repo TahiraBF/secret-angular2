@@ -25,6 +25,7 @@ import { AddSecretComponent } from './add-secret/add-secret.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { SearchComponent } from './search/search.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -42,7 +43,8 @@ import { SearchComponent } from './search/search.component';
     FileSelectDirective,
     ProfileEditComponent,
     AddReferralComponent,
-    SearchComponent
+    SearchComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

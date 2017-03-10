@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
 
   secrets: any;
   user: any;
-  country: String;
+  pattern1: String;
 
   constructor(
     private session: SessionService,
