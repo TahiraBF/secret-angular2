@@ -36,9 +36,7 @@ showSecrets() {
   this.secret.getSecret()
     .subscribe((secrets) => {
       console.log("showSecrets function", secrets)
-      this.ngZone.run(()=>{
-          this.secrets = secrets
-      })
+      this.secrets = secrets
 
     });
 

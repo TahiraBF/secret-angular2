@@ -9,7 +9,7 @@
     <p> {{ user.travellerType }} </p>
     <h4 class="labell"> About {{user.name}}</h4>
     <p> {{ user.description }} </p>
-    <a [routerLink]="['edit']"> Edit </a>
+    <a [routerLink]="['/api/profile/edit']"> Edit </a>
 </div>
 
 <router-outlet></router-outlet>

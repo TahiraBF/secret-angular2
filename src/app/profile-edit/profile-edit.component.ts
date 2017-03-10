@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { IsAdminService   } from '../services/is-admin.service';
-import { ProfileService         } from '../services/profile.service';
-import { SessionService         } from '../services/session.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FileUploader           } from "ng2-file-upload";
+import { Component, OnInit, NgZone } from '@angular/core';
+import { ProfileService            } from '../services/profile.service';
+import { SessionService            } from '../services/session.service';
+import { Router                    } from '@angular/router';
+import { FileUploader              } from "ng2-file-upload";
 
 
 @Component({
@@ -13,7 +12,7 @@ import { FileUploader           } from "ng2-file-upload";
 })
 export class ProfileEditComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/api/profile/`,
+    url: `http://localhost:3000/api/profile`,
     authToken: `JWT ${this.session.token}`
   });
 
@@ -23,8 +22,10 @@ export class ProfileEditComponent implements OnInit {
 
   constructor(
     private profile : ProfileService,
-    private route  : ActivatedRoute,
-    private session: SessionService
+    private session: SessionService,
+    private zone : NgZone,
+    private router  : Router
+
   ) { }
 
   ngOnInit() {
@@ -33,8 +34,13 @@ export class ProfileEditComponent implements OnInit {
     }
 
     this.uploader.onSuccessItem = (item, response) => {
-      this.feedback = JSON.parse(response).message;
-      console.log("uploaded item");
+        this.feedback = JSON.parse(response).message;
+        console.log("uploaded item");
+        this.user = JSON.parse(response).user;
+        localStorage.removeItem('user')
+        localStorage.setItem('user', JSON.stringify(this.user))
+        this.router.navigate(['/api/profile'])
+        console.log("local user updated");
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
@@ -46,16 +52,17 @@ export class ProfileEditComponent implements OnInit {
 
   update() {
     this.profile.edit(this.user).subscribe((res) => {
-      console.log("hola", res);
+      // console.log("hola", res);
     });
     this.uploader.onBuildItemForm = (item, form) => {
     };
-
-    this.uploader.uploadAll();
+      this.uploader.uploadAll();
   }
 
   toggle() {
     this.shouldShow = !this.shouldShow;
+
   }
+
 
 }

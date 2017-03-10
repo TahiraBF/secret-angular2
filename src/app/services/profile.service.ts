@@ -22,10 +22,6 @@ export class ProfileService {
     let options = new RequestOptions({ headers: headers });
     return this.http.get(`${this.BASE_URL}/api/profile`, options)
       .map((res) => res.json());
-      //   localStorage.removeItem('user')
-      //   localStorage.setItem('user', JSON.stringify(res.json().user))
-      //   console.log("res.userget: ", res.json().user);
-      // });
   }
 
   getById(id) {
@@ -53,7 +49,7 @@ export class ProfileService {
   edit(user) {
     let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
-    return this.http.put(`${this.BASE_URL}/api/profile/`, user, options)
+    return this.http.put(`${this.BASE_URL}/api/profile`, user, options)
       .map((res) => {res.json().user;
         localStorage.removeItem('user')
         localStorage.setItem('user', JSON.stringify(res.json().user))

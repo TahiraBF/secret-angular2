@@ -26,11 +26,11 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
-    { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
-    children:[
-      {path: 'edit', component: ProfileEditComponent, canActivate: [SessionService] }
-    ]
-   },
+    { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService]},
+    // children:[
+      {path: 'api/profile/edit', component: ProfileEditComponent, canActivate: [SessionService] },
+    // ]
+  //  },
     { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
     { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService] },
     { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },

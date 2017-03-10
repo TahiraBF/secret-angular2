@@ -39,7 +39,9 @@ export class ProfileComponent implements OnInit {
     if (this.session.user){
       this.user = this.session.user;
     }
+    console.log("ngOnInit");
     this.getPendingUsers()
+
   };
 
 
