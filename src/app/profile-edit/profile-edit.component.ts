@@ -16,9 +16,10 @@ export class ProfileEditComponent implements OnInit {
     authToken: `JWT ${this.session.token}`
   });
 
+  file : String;
   user: any;
-  shouldShow: boolean = true;
-  feedback : string;
+  shouldShow: Boolean = true;
+  feedback : String;
 
   constructor(
     private profile : ProfileService,

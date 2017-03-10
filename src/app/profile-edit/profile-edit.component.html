@@ -15,7 +15,7 @@
     <textarea type="text" name="description"  [(ngModel)]="user.description" class="form-control"></textarea>
     <div class="form-group">
       <label for="exampleInputFile">File input</label>
-      <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+      <input [(ngModel)]="filepath"  type="file" name="file" ng2FileSelect [uploader]="uploader" />
       <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
     </div>
 

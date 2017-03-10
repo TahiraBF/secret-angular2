@@ -1,5 +1,4 @@
 import { Component, OnInit      } from '@angular/core';
-import { IsAdminService         } from '../services/is-admin.service';
 import { ProfileService         } from '../services/profile.service';
 import { SessionService         } from '../services/session.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,12 +12,17 @@ import { FileUploader           } from "ng2-file-upload";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  uploader: FileUploader = new FileUploader({
+    url: `http://localhost:3000/api/profile`,
+    authToken: `JWT ${this.session.token}`
+  });
+
 
   userId;
   user: any;
-  userTwo: any;
   pendingUsers: any;
   feedback : string;
+  shouldShow: Boolean = true;
 
 
   newUser = {
@@ -32,7 +36,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private profile : ProfileService,
     private route  : ActivatedRoute,
-    private session: SessionService
+    private session: SessionService,
+    private router  : Router
   ) { }
 
   ngOnInit() {
@@ -40,7 +45,24 @@ export class ProfileComponent implements OnInit {
       this.user = this.session.user;
     }
     console.log("ngOnInit");
-    this.getPendingUsers()
+    this.getPendingUsers();
+
+    this.uploader.onSuccessItem = (item, response) => {
+        this.feedback = JSON.parse(response).message;
+        console.log("uploaded item");
+        this.user = JSON.parse(response).user;
+        localStorage.removeItem('user')
+        localStorage.setItem('user', JSON.stringify(this.user))
+        this.router.navigate(['/api/profile'])
+        console.log("local user updated");
+    };
+
+    this.uploader.onErrorItem = (item, response, status, headers) => {
+      this.feedback = JSON.parse(response).message;
+      console.log("uploader error");
+    };
+
+    this.shouldShow = false;
 
   };
 
@@ -52,6 +74,19 @@ export class ProfileComponent implements OnInit {
       })
   }
 
+  update() {
+    this.profile.edit(this.user).subscribe((res) => {
+      // console.log("hola", res);
+    });
+    this.uploader.onBuildItemForm = (item, form) => {
+    };
+      this.uploader.uploadAll();
+  }
+
+  toggle() {
+    this.shouldShow = !this.shouldShow;
+
+  }
 
 
 

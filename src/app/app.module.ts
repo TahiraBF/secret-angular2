@@ -24,6 +24,7 @@ import { AddSecretComponent } from './add-secret/add-secret.component';
 
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -40,7 +41,8 @@ import { AddReferralComponent } from './add-referral/add-referral.component';
     AddSecretComponent,
     FileSelectDirective,
     ProfileEditComponent,
-    AddReferralComponent
+    AddReferralComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

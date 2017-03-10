@@ -15,6 +15,8 @@ import { AddReferralComponent } from './add-referral/add-referral.component';
 import { AddSecretComponent } from './add-secret/add-secret.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AdminComponent } from './admin/admin.component';
+import { SearchComponent } from './search/search.component';
+
 
 
 
@@ -31,7 +33,9 @@ export const routes: Routes = [
     {path: 'api/profile/edit', component: ProfileEditComponent, canActivate: [SessionService] },
     { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
     { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService] },
-    { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] }
+    { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
     // { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
     // { path: '**', redirectTo: '' }
+    { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] }
+
 ];
