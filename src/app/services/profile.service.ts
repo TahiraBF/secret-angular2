@@ -57,12 +57,12 @@ export class ProfileService {
       })
   }
 
-  // addReferral(referral) {
-  //   let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
-  //   let options = new RequestOptions({ headers: headers });
-  //   return this.http.post(`${this.BASE_URL}/api/profile/`, referral, options)
-  //     .map((res) => res.json());
-  //
-  // }
+  addReferral(referral) {
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.BASE_URL}/api/profile/refer/`, referral, options)
+      .map((res) => res.json());
+
+  }
 
 }

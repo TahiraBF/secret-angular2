@@ -23,6 +23,7 @@ import { SecretsComponent } from './secrets/secrets.component';
 import { AddSecretComponent } from './add-secret/add-secret.component';
 
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { AddReferralComponent } from './add-referral/add-referral.component';
 
 
 
@@ -38,7 +39,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     SecretsComponent,
     AddSecretComponent,
     FileSelectDirective,
-    ProfileEditComponent
+    ProfileEditComponent,
+    AddReferralComponent
   ],
   imports: [
     BrowserModule,
