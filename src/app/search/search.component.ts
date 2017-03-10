@@ -14,6 +14,8 @@ export class SearchComponent implements OnInit {
   secrets: any;
   user: any;
   pattern1: String;
+  shouldShow: Boolean = true;
+
 
   constructor(
     private session: SessionService,
@@ -28,6 +30,7 @@ export class SearchComponent implements OnInit {
     console.log("ngOnInit");
     this.showSecrets()
 
+    this.shouldShow = false;
   }
 
   showSecrets() {
@@ -37,7 +40,6 @@ export class SearchComponent implements OnInit {
         this.secrets = secrets
 
       });
-
   }
 
 }
