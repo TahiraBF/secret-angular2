@@ -37,9 +37,12 @@ export class SignupComponent implements OnInit {
       .subscribe(result => {
           if (result === true) {
               console.log('result ok', result);
+              localStorage.removeItem('token')
+              localStorage.removeItem('user')
               this.router.navigate(['']);
           } else {
           		console.log('result ko', result);
+
           }
       });
   }

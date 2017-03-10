@@ -9,11 +9,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-referral.component.css']
 })
 export class AddReferralComponent implements OnInit {
-  referral:  any;
-  user: any;
 
   addReferredUser = {
-    refEmail: " "
+    refEmail: " ",
   }
 
   constructor(
@@ -23,14 +21,13 @@ export class AddReferralComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
   }
 
-  getReferral(referral) {
+
+  getReferral() {
     console.log(this.addReferredUser)
     this.profile.addReferral(this.addReferredUser)
     .subscribe(res => {
-      this.referral = referral;
       this.router.navigate(['/api/profile'])
     });
   }
