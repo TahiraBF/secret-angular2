@@ -26,6 +26,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -44,7 +45,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     ProfileEditComponent,
     AddReferralComponent,
     SearchComponent,
-    FilterPipe
+    FilterPipe,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

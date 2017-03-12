@@ -1,9 +1,12 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { tokenNotExpired } from 'angular2-jwt';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
+
+
 
 @Injectable()
 export class SessionService implements CanActivate {
@@ -95,5 +98,13 @@ export class SessionService implements CanActivate {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       this.router.navigate(['']);
+  }
+
+  loggedIn(){
+    if (  this.token !== null || this.user  !== null){
+      return true
+    } else {
+      return false
+    }
   }
 }
