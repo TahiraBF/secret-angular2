@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       .subscribe(result => {
 				            if (result === true) {
 			                // login successful
-			                this.router.navigate(['/api/profile']);
+			                this.router.navigate(['api/secrets/featured']);
 			         			} else {
 			                // login failed
 			                this.error = 'Username or password is incorrect';

@@ -16,15 +16,5 @@ export class AppComponent {
     private session : SessionService,
   ) {}
 
-  // ngOnInit() {
-  //   if (this.session.user){
-  //     this.user = this.session.user;
-  //   }
-  // }
-
-
-  // logout(){
-  //   this.session.logout();
-  // }
 
 }
