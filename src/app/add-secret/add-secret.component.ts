@@ -16,6 +16,7 @@ export class AddSecretComponent implements OnInit {
     });
 
   secrets: any;
+  user: any;
 
   newSecret = {
     where       : " ",
@@ -36,6 +37,10 @@ export class AddSecretComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.session.user){
+      this.user = this.session.user._id;
+    }
+
     this.uploader.onSuccessItem = (item, res) => {
       this.feedback = JSON.parse(res).message;
       this.router.navigate(['/api/secrets']);
@@ -44,8 +49,7 @@ export class AddSecretComponent implements OnInit {
     this.uploader.onErrorItem = (item, res, status, headers) => {
       this.feedback = JSON.parse(res).message;
     }
-  }
-
+ }
 
   addNewSecret() {
     this.uploader.onBuildItemForm = (item, form) => {
