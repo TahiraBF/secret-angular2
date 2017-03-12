@@ -16,6 +16,7 @@ import { AddSecretComponent } from './add-secret/add-secret.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { SearchComponent } from './search/search.component';
+import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
 
 
 
@@ -38,6 +39,7 @@ export const routes: Routes = [
     // ]
    },
     { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
+    { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService] },
     // { path: 'admin', component: AdminComponent, canActivate: [SessionService]}
     // { path: '**', redirectTo: '' }
     { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] }
