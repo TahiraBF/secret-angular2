@@ -3,6 +3,13 @@
     border-left: none;
     position: relative;
 }
+
+.video {
+  width: 100%;
+  height: 50%;
+}
+
+
 .no-video .video-container video,
 .touch .video-container video {
     display: none;
