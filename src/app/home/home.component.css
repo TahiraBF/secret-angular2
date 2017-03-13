@@ -14,5 +14,10 @@
 }
 
 #navInit {
-  margin-left: 10%;
+  margin-left: 100px;
+}
+
+#homeContainer {
+  padding-top: 0px;
+  margin-top: 0px;
 }

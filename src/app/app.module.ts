@@ -29,6 +29,7 @@ import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
+import { PendingUserComponent } from './pending-user/pending-user.component';
 
 
 
@@ -49,7 +50,8 @@ import { FeaturedSecretComponent } from './featured-secret/featured-secret.compo
     SearchComponent,
     FilterPipe,
     NavbarComponent,
-    FeaturedSecretComponent
+    FeaturedSecretComponent,
+    PendingUserComponent
   ],
   imports: [
     BrowserModule,

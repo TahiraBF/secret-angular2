@@ -1,0 +1,9 @@
+<div>
+  <a [routerLink]="['/api/profile/']">Back</a>
+  <h4>Members Pending Approval</h4>
+  <p *ngFor="let pendingUser of pendingUsers" class="jumbotron displayTease">
+    <li class="PUemail"> Email : {{pendingUser.username}} </li>
+    <li class="PUname"> Name :{{pendingUser.name}}</li>
+    <a [routerLink]="['/api/profile/approve-users', pendingUser._id]">View more</a>
+  </p>
+</div>

@@ -17,6 +17,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { SearchComponent } from './search/search.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
+import { PendingUserComponent } from './pending-user/pending-user.component';
 
 
 
@@ -28,11 +29,12 @@ export const routes: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
     children:[
-      { path: 'refer', component: AddReferralComponent, canActivate: [SessionService] }
+      { path: 'refer', component: AddReferralComponent, canActivate: [SessionService] },
+      { path: 'approve-users', component: PendingUserComponent, canActivate: [SessionService] }
     ]
    },
     {path: 'api/profile/edit', component: ProfileEditComponent, canActivate: [SessionService] },
-    { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
+    { path: 'api/profile/approve-users/:id', component: ApproveUserComponent, canActivate: [SessionService] },
     { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
     { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
     { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService] },
