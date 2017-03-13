@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,7 +27,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
   	private session: SessionService,
-    private router: Router
+    private router: Router,
+    private flashMessages: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,7 @@ export class SignupComponent implements OnInit {
 
   signup() {
   	this.session.signup(this.newUser)
-      .subscribe(result => {
+      .subscribe((result) => {
           if (result === true) {
               console.log('result ok', result);
               localStorage.removeItem('token')
@@ -44,6 +46,16 @@ export class SignupComponent implements OnInit {
           		console.log('result ko', result);
 
           }
-      });
+      },
+      (error) => {
+        if (error.status === 403) {
+        this.flashMessages.show('User Name Exists', {cssClass: 'alert-danger', timeout: 3000})
+        }
+        else {
+          this.flashMessages.show('Please fill in all the fields', {cssClass: 'alert-danger', timeout: 3000})
+        }
+
+      }
+      )
   }
 }

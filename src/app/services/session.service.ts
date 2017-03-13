@@ -39,7 +39,7 @@ export class SessionService implements CanActivate {
   		.map((response) => response.json())
   		.map((response) => {
   			let token = response.token;
-  			if (token) {
+  			if (token != undefined) {
           // set token property
           this.token = token;
           this.user = response.user;
@@ -88,7 +88,8 @@ export class SessionService implements CanActivate {
               // return false to indicate failed login
               return false;
             }
-        });
+        })
+        .catch((err) => Observable.throw(err));
   }
 
   logout() {

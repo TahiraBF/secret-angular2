@@ -17,4 +17,16 @@ export class AppComponent {
   ) {}
 
 
+  ngOnInit() {
+    if (this.session.user){
+      this.user = this.session.user;
+    }
+  }
+
+
+  logout(){
+    this.session.logout();
+  }
+
+
 }

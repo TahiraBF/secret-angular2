@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private session: SessionService,
-    private router: Router
+    private router: Router,
+    private flashMessages: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -26,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.session.login(this.user)
-      .subscribe(result => {
+      .subscribe((result) => {
 				            if (result === true) {
 			                // login successful
 			                this.router.navigate(['api/secrets/featured']);
@@ -34,7 +36,12 @@ export class LoginComponent implements OnInit {
                         // login failed
                         this.message = 'Username or password is incorrect';
 				            }
-				        });
-
+				        },
+                (error) => {
+                  if (error.status === 401) {
+                    this.flashMessages.show("Incorrect name and/or password", {cssClass: 'alert-danger', timeout: 3000});
+                  }
+                }
+              )
   }
 }

@@ -19,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { SecretsComponent } from './secrets/secrets.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AddSecretComponent } from './add-secret/add-secret.component';
 
@@ -54,6 +55,7 @@ import { FeaturedSecretComponent } from './featured-secret/featured-secret.compo
     BrowserModule,
     FormsModule,
     HttpModule,
+    FlashMessagesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [SessionService, ProfileService, SecretsService],
