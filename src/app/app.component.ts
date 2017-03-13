@@ -16,15 +16,15 @@ export class AppComponent implements OnInit {
     private session : SessionService,
   ) {}
 
-  // ngOnInit() {
-  //   if (this.session.user){
-  //     this.user = this.session.user;
-  //   }
-  // }
+  ngOnInit() {
+    if (this.session.user){
+      this.user = this.session.user;
+    }
+  }
 
 
-  // logout(){
-  //   this.session.logout();
-  // }
+  logout(){
+    this.session.logout();
+  }
 
 }

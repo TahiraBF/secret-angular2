@@ -19,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { SecretsComponent } from './secrets/secrets.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AddSecretComponent } from './add-secret/add-secret.component';
 
@@ -26,11 +27,9 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
-<<<<<<< HEAD
 import { NavbarComponent } from './navbar/navbar.component';
-=======
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
->>>>>>> 4fbeb4336cf5e7f9eed8e242ccbfeaf9676a71bb
+
 
 
 
@@ -57,6 +56,7 @@ import { FeaturedSecretComponent } from './featured-secret/featured-secret.compo
     BrowserModule,
     FormsModule,
     HttpModule,
+    FlashMessagesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [SessionService, ProfileService, SecretsService],
