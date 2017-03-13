@@ -1,4 +1,4 @@
-<div class="col-md-3 col-md-offset-4">
+<!-- <div class="col-md-3 col-md-offset-4">
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	    <form>
@@ -44,4 +44,69 @@
 	    </form>
 	  </div>
 	</div>
+</div> -->
+
+
+<div class="imgcontainer">
+  <div class="container">
+      <h3 class="well">Request a membership
+        <h5>Sadly we cannot accept every member request so we can protect our Secret Places. You can apply for membership and will be notified if approved.
+          <br> Happy Travels!</h5>
+      </h3>
+
+  	<div class="col-lg-12 well">
+  	<div class="row">
+  				<form>
+  					<div class="col-sm-12">
+  						<div class="row">
+  							<div class="col-sm-6 form-group">
+                  <label for="InputUsername">Username</label>
+        	        <input type="email" class="form-control" id="InputUsername" placeholder="Enter email" [(ngModel)]="newUser.username" name="username">
+  							</div>
+                <div class="col-sm-6 form-group">
+                  <label for="InputName">Name</label>
+                  <input type="text" class="form-control" id="InputName" placeholder="Name" [(ngModel)]="newUser.name" name="name">
+                </div>
+  							<div class="col-sm-6 form-group">
+                  <label for="InputPassword">Password</label>
+        	        <input type="password" class="form-control" id="InputPassword" placeholder="Password" [(ngModel)]="newUser.password" name="password">
+  							</div>
+  						</div>
+  						<div class="form-group">
+                <label for="InputDescription">Description</label>
+                <textarea class="form-control" id="InputDescription" placeholder="Tell us about you..." [(ngModel)]="newUser.description" name="description"></textarea>
+  						</div>
+  						<div class="row">
+  							<div class="col-sm-4 form-group" id="travellerSelect">
+                  <label for="travellerType">What type of traveller are you?</label>
+                  <select [(ngModel)]="newUser.travellerType" name="travellerType" autogrow >
+                    <option value="Thrill-Seeker">Thrill-Seeker</option>
+                    <option value="Lone-Ranger">Lone-Ranger</option>
+                    <option value="Nomad">Nomad</option>
+                    <option value="Luxury">Luxury</option>
+                  </select>
+  							</div>
+  							<div class="col-sm-4 form-group">
+                  <label for="InputFoundUsHow">How did you hear about us?</label>
+                  <input type="text" class="form-control" id="InputFoundUsHow" placeholder="friend, magazine, Google..." [(ngModel)]="newUser.foundUsHow" name="foundUsHow">
+  							</div>
+  							<div class="col-sm-4 form-group">
+                  <label for="InputReferredBy">Have you been referred? </label>
+                  <input type="email" class="form-control" id="InputReferredBy" placeholder="Enter Referee's email" [(ngModel)]="newUser.referredBy" name="referredBy">
+  							</div>
+  						</div>
+  						<div class="row">
+  							<div class="col-sm-6 form-group">
+                  <label for="InputIsDisclaimer">Accept Terms & Conditions</label>
+                  <p class="form-text text-muted">I solemnly swear I will not share the secret.</p>
+                  <input type="checkbox" class="form-control" id="InputIsDisclaimer" [(ngModel)]="newUser.isDisclaimer" name="isDisclaimer">
+  							</div>
+              </div>
+  					<button type="submit" (click)="signup()" class="btn btn-lg btn-info">Sign up</button>
+
+          </div>
+  				</form>
+  				</div>
+  	  </div>
+  	</div>
 </div>
