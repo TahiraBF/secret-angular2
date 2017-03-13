@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  error: string;
+  message : any;
 
   constructor(
     private session: SessionService,
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
 			                // login successful
 			                this.router.navigate(['api/secrets/featured']);
 			         			} else {
-			                // login failed
-			                this.error = 'Username or password is incorrect';
+                        // login failed
+                        this.message = 'Username or password is incorrect';
 				            }
 				        });
 

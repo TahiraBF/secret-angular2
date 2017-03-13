@@ -2,8 +2,8 @@
 <div class="w3-display-container w3-animate-opacity">
   <img src="https://static.pexels.com/photos/169905/pexels-photo-169905.jpeg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
   <div class="w3-container w3-display-bottomleft w3-margin-bottom">
-  <a [routerLink]="['/login']" *ngIf="!session.loggedIn()" ><button class="w3-button w3-xlarge w3-theme w3-hover-teal" >Login</button></a>
-  <a [routerLink]="['/signup']" *ngIf="!session.loggedIn()"><button class="w3-button w3-xlarge w3-theme w3-hover-teal">Become a member</button></a>
+  <a [routerLink]="['/login']" *ngIf="!isAuth" ><button class="w3-button w3-xlarge w3-theme w3-hover-teal" >Login</button></a>
+  <a [routerLink]="['/signup']" *ngIf="!isAuth"><button class="w3-button w3-xlarge w3-theme w3-hover-teal">Become a member</button></a>
 
   </div>
 </div>
