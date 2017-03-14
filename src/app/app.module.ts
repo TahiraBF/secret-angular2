@@ -9,6 +9,7 @@ import { SecretsService} from './services/secrets.service';
 import { IsAdminService} from './services/is-admin.service';
 import { ProfileService} from './services/profile.service';
 import { FileSelectDirective  } from "ng2-file-upload";
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 
 import { AppComponent } from './app.component';
@@ -22,14 +23,13 @@ import { SecretsComponent } from './secrets/secrets.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AddSecretComponent } from './add-secret/add-secret.component';
-
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
 import { PendingUserComponent } from './pending-user/pending-user.component';
+import { MapComponent } from './map/map.component';
 
 
 
@@ -45,20 +45,23 @@ import { PendingUserComponent } from './pending-user/pending-user.component';
     SecretsComponent,
     AddSecretComponent,
     FileSelectDirective,
-    ProfileEditComponent,
     AddReferralComponent,
     SearchComponent,
     FilterPipe,
     NavbarComponent,
     FeaturedSecretComponent,
-    PendingUserComponent
+    PendingUserComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     FlashMessagesModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCWuTofnbPYobuakChc65kL_ITMOet0VEo'
+    })
   ],
   providers: [SessionService, ProfileService, SecretsService],
   bootstrap: [AppComponent]

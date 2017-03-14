@@ -13,11 +13,11 @@ import { SecretsService   } from './services/secrets.service';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { AddSecretComponent } from './add-secret/add-secret.component';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { SearchComponent } from './search/search.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
 import { PendingUserComponent } from './pending-user/pending-user.component';
+import { MapComponent } from './map/map.component';
 
 
 
@@ -33,7 +33,7 @@ export const routes: Routes = [
       { path: 'approve-users', component: PendingUserComponent, canActivate: [SessionService] }
     ]
    },
-    {path: 'api/profile/edit', component: ProfileEditComponent, canActivate: [SessionService] },
+    { path: 'api/profile/map', component: MapComponent, canActivate: [SessionService]},
     { path: 'api/profile/approve-users/:id', component: ApproveUserComponent, canActivate: [SessionService] },
     { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
     { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },

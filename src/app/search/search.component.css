@@ -1,0 +1,27 @@
+#search-method select {
+  background: white;
+  width: 100px;
+  /*padding: 0px;*/
+  font-size: 16px;
+  line-height: 1;
+  /*border: 0;*/
+  /*border-radius: 0;*/
+  height: 34px;
+  /*-webkit-appearance: none;*/
+}
+
+.jumbotron {
+  /*height: 600px;*/
+  padding: 50px;
+  background-image: url("https://static.pexels.com/photos/88725/pexels-photo-88725.jpeg");
+  margin: 0 auto;
+  background-size: cover;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#search {
+  border-radius: 5px;
+  line-height: 1;
+  height: 40px;
+}
