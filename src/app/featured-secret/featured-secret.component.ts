@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SecretsService         } from '../services/secrets.service';
 import { SessionService         } from '../services/session.service';
 
+
 @Component({
   selector: 'app-featured-secret',
   templateUrl: './featured-secret.component.html',
@@ -14,7 +15,8 @@ export class FeaturedSecretComponent implements OnInit {
 
   constructor(
     private secret : SecretsService,
-    private session: SessionService
+    private session: SessionService,
+
   ) {
   }
 

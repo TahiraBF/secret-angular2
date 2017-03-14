@@ -35,4 +35,11 @@ export class SecretsService {
       .map((res) => res.json());
   }
 
+  viewOneSecret(id) {
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(`${this.BASE_URL}/api/secrets/${id}`, options)
+      .map((res) => res.json());
+  }
+
 }

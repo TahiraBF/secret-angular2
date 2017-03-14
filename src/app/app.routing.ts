@@ -17,25 +17,26 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { SearchComponent } from './search/search.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
+import { OneSecretComponent } from './one-secret/one-secret.component';
 
 
 
 
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent },
-    { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
-    children:[
-      { path: 'refer', component: AddReferralComponent, canActivate: [SessionService] }
-    ]
-   },
-    {path: 'api/profile/edit', component: ProfileEditComponent, canActivate: [SessionService] },
-    { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
-    { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
-    { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
-    { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService] },
-    { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] }
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
+  children:[
+    { path: 'refer', component: AddReferralComponent, canActivate: [SessionService] }
+  ]},
+  { path: 'api/profile/edit', component: ProfileEditComponent, canActivate: [SessionService] },
+  { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
+  { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
+  { path: 'api/secrets/:id', component: OneSecretComponent, canActivate: [SessionService] },
+  { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
+  { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService]},
+  { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] }
 
 ];

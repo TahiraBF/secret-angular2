@@ -49,10 +49,10 @@ export class SignupComponent implements OnInit {
       },
       (error) => {
         if (error.status === 403) {
-        this.flashMessages.show('User Name Exists', {cssClass: 'alert-danger', timeout: 3000})
+        this.flashMessages.show('User Name Exists', {cssClass: 'alert-danger', timeout: 4000})
         }
         else {
-          this.flashMessages.show('Please fill in all the fields', {cssClass: 'alert-danger', timeout: 3000})
+          this.flashMessages.show('Please fill in all the fields', {cssClass: 'alert-danger', timeout: 4000})
         }
 
       }
