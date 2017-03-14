@@ -10,10 +10,17 @@
   /*-webkit-appearance: none;*/
 }
 
-.jumbotron {
-  /*height: 600px;*/
+div {
+  font-family: Futura;
+  font-weight: lighter;
+}
+
+
+.cont {
+  width: 100%;
+  height: 300px;
   padding: 50px;
-  background-image: url("https://static.pexels.com/photos/88725/pexels-photo-88725.jpeg");
+  background-image: url('../../assets/pic1.jpg');
   margin: 0 auto;
   background-size: cover;
   position: relative;
@@ -24,4 +31,7 @@
   border-radius: 5px;
   line-height: 1;
   height: 40px;
+
+.jumbotron {
+  background-color: transparent;
 }

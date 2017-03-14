@@ -15,8 +15,7 @@ export class SecretsComponent implements OnInit {
   constructor(
     private secret : SecretsService,
     private route  : ActivatedRoute,
-    private session: SessionService,
-    private ngZone: NgZone
+    private session: SessionService
 
   ) { }
 

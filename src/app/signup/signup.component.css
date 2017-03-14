@@ -16,8 +16,7 @@ h5 {
 }
 
 .imgcontainer {
-  background-image: url("https://static.pexels.com/photos/247599/pexels-photo-247599.jpeg");
-  /*background-image: url("https://static.pexels.com/photos/169905/pexels-photo-169905.jpeg");*/
+  background-image: url("../../assets/green-mountain.jpg");
   background-size: cover;
 }
 

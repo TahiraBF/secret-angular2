@@ -3,6 +3,7 @@ import { NgModule      } from '@angular/core';
 import { FormsModule   } from '@angular/forms';
 import { HttpModule    } from '@angular/http';
 import { RouterModule  } from '@angular/router';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { routes        } from './app.routing';
 import { SessionService} from './services/session.service';
 import { SecretsService} from './services/secrets.service';
@@ -20,7 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { SecretsComponent } from './secrets/secrets.component';
-import { FlashMessagesModule } from 'angular2-flash-messages';
+
 
 import { AddSecretComponent } from './add-secret/add-secret.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
@@ -28,9 +29,9 @@ import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
+import { OneSecretComponent } from './one-secret/one-secret.component';
 import { PendingUserComponent } from './pending-user/pending-user.component';
 import { MapComponent } from './map/map.component';
-
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MapComponent } from './map/map.component';
     NavbarComponent,
     FeaturedSecretComponent,
     PendingUserComponent,
-    MapComponent
+    MapComponent,
+    OneSecretComponent
   ],
   imports: [
     BrowserModule,
