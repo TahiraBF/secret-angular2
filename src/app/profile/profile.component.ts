@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   pendingUsers: any;
   feedback : string;
   shouldShow: Boolean = true;
+  showAdmin: Boolean = true;
+
 
 
   newUser = {
@@ -63,6 +65,8 @@ export class ProfileComponent implements OnInit {
     };
 
     this.shouldShow = false;
+    this.showAdmin = false;
+
 
   };
 
@@ -85,9 +89,11 @@ export class ProfileComponent implements OnInit {
 
   toggle() {
     this.shouldShow = !this.shouldShow;
-
   }
 
+  toggleAdmin() {
+    this.showAdmin = !this.showAdmin;
+  }
 
 
 }

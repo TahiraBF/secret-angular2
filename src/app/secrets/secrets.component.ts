@@ -23,7 +23,7 @@ export class SecretsComponent implements OnInit {
     if (this.session.user){
       this.user = this.session.user;
     }
-    console.log("ngOnInit");
+    console.log("ngOnInit:", this.user._id);
     this.showSecrets()
   }
 
@@ -34,8 +34,8 @@ export class SecretsComponent implements OnInit {
 showSecrets() {
   this.secret.getSecret()
     .subscribe((secrets) => {
-      console.log("showSecrets function", secrets)
       this.secrets = secrets
+      console.log("showSecrets function", this.secrets)
 
     });
 

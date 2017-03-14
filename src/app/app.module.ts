@@ -24,14 +24,13 @@ import { SecretsComponent } from './secrets/secrets.component';
 
 import { AddSecretComponent } from './add-secret/add-secret.component';
 
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
 import { OneSecretComponent } from './one-secret/one-secret.component';
-
+import { PendingUserComponent } from './pending-user/pending-user.component';
 
 
 @NgModule({
@@ -46,13 +45,14 @@ import { OneSecretComponent } from './one-secret/one-secret.component';
     SecretsComponent,
     AddSecretComponent,
     FileSelectDirective,
-    ProfileEditComponent,
     AddReferralComponent,
     SearchComponent,
     FilterPipe,
     NavbarComponent,
     FeaturedSecretComponent,
-    OneSecretComponent
+    OneSecretComponent,
+    PendingUserComponent
+
   ],
   imports: [
     BrowserModule,

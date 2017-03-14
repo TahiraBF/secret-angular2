@@ -13,30 +13,34 @@ import { SecretsService   } from './services/secrets.service';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { AddSecretComponent } from './add-secret/add-secret.component';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { SearchComponent } from './search/search.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
 import { OneSecretComponent } from './one-secret/one-secret.component';
+import { PendingUserComponent } from './pending-user/pending-user.component';
+
 
 
 
 
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
-  children:[
-    { path: 'refer', component: AddReferralComponent, canActivate: [SessionService] }
-  ]},
-  { path: 'api/profile/edit', component: ProfileEditComponent, canActivate: [SessionService] },
-  { path: 'api/profile/:id', component: ApproveUserComponent, canActivate: [SessionService] },
-  { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
-  { path: 'api/secrets/:id', component: OneSecretComponent, canActivate: [SessionService] },
-  { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
-  { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService]},
-  { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] }
+
+    { path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
+    { path: 'api/profile', component: ProfileComponent, canActivate: [SessionService],
+    children:[
+      { path: 'refer', component: AddReferralComponent, canActivate: [SessionService] },
+      { path: 'approve-users', component: PendingUserComponent, canActivate: [SessionService] }
+    ]
+   },
+    { path: 'api/profile/approve-users/:id', component: ApproveUserComponent, canActivate: [SessionService] },
+    { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
+    { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
+    { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService] },
+    { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] },
+    { path: 'api/secrets/:id', component: OneSecretComponent, canActivate: [SessionService] }
+
 
 ];

@@ -3,39 +3,21 @@
     border-left: none;
     position: relative;
 }
-.no-video .video-container video,
-.touch .video-container video {
-    display: none;
+
+.video {
+  width: 100%;
+  height: 700px;
 }
-.no-video .video-container .poster,
-.touch .video-container .poster {
-    display: block !important;
+
+#about {
+  margin-top: -30px;
 }
-.video-container {
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background: #000;
+
+#navInit {
+  margin-left: 100px;
 }
-.video-container .poster img {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
+
+#homeContainer {
+  padding-top: 0px;
+  margin-top: 0px;
 }
-.video-container .filter {
-    z-index: 100;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-}
-/*.video-container video {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-}*/
-/*.video-container video.fillWidth {
-    width: 100%;
-}*/

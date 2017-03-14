@@ -1,11 +1,15 @@
-<p>
-  approve-user works!
-</p>
-<div class="jumbotron" *ngIf="user">
-  <h3 class="PUemail"> Email: {{user.username}} </h3>
-  <p> Name: {{user.name}} </p>
-  <p> Type of Traveller: {{user.travellerType}} </p>
-  <p> Description: {{user.description}} </p>
-  <p> How did you hear about us?: {{user.foundUsHow}} </p>
-  <button (click)="approvedUser()" (click)="deleteUser()" >Approve User</button>
+<div class="cont">
+  <div class="jumb" *ngIf="user">
+    <h3 class="PUemail"> Email: {{user.username}} </h3>
+    <h4> Name: {{user.name}} </h4>
+    <h4> Type of Traveller: {{user.travellerType}} </h4>
+    <h4> Description: {{user.description}} </h4>
+    <h4> How did you hear about us?: {{user.foundUsHow}} </h4>
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default" (click)="approvedUser()" (click)="deleteUser()">Approve User</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default" [routerLink]="['/api/profile/approve-users']">Back to list</button>
+    </div>
+  </div>
 </div>

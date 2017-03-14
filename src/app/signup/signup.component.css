@@ -1,0 +1,26 @@
+#travellerSelect select {
+ background: white;
+ width: 200px;
+ /*padding: 0px;*/
+ font-size: 16px;
+ line-height: 1;
+ /*border: 0;*/
+ /*border-radius: 0;*/
+ height: 34px;
+ /*-webkit-appearance: none;*/
+
+}
+
+h5 {
+  font-weight: normal;
+}
+
+.imgcontainer {
+  background-image: url("https://static.pexels.com/photos/247599/pexels-photo-247599.jpeg");
+  /*background-image: url("https://static.pexels.com/photos/169905/pexels-photo-169905.jpeg");*/
+  background-size: cover;
+}
+
+.container {
+  opacity: 0.95;
+}
