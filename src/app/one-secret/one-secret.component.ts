@@ -28,7 +28,7 @@ export class OneSecretComponent implements OnInit {
     this.secrets.viewOneSecret(id)
     .subscribe((secret) => {
       this.secret = secret;
-      console.log("secret is ", secret);
+      console.log("secret is ", secret.user);
     }
   )};
 

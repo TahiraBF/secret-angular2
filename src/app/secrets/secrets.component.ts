@@ -23,7 +23,7 @@ export class SecretsComponent implements OnInit {
     if (this.session.user){
       this.user = this.session.user;
     }
-    console.log("ngOnInit:", this.user._id);
+    console.log("ngOnInit:", this.user);
     this.showSecrets()
   }
 
