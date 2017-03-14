@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
+import { SessionService    } from '../services/session.service';
+import { SecretsService    } from '../services/secrets.service';
 import { AgmCoreModule, SebmGoogleMap, SebmGoogleMapMarker } from 'angular2-google-maps/core';
+import { MapsAPILoader } from 'angular2-google-maps/core';
+declare var google: any;
+
 
 @Component({
   selector: 'app-map',
@@ -9,7 +14,7 @@ import { AgmCoreModule, SebmGoogleMap, SebmGoogleMapMarker } from 'angular2-goog
   templateUrl: './map.component.html',
 
 })
-export class MapComponent {
+export class MapComponent implements OnInit {
 
   //zoom//
   zoom : number = 7;
@@ -24,17 +29,75 @@ export class MapComponent {
       lng: 7.809007,
       draggable: true
     },
-    {
-      name: "Company2",
-      lat: 51.507879,
-      lng: -0.087732,
-      draggable: true
-    }
   ];
 
-  constructor() {
+  user;
+  secrets;
+  geocoder;
+  addresses: Array<Object> = [];
+
+  // geocoder = new google.maps.Geocoder();
+
+  constructor(
+    private secret : SecretsService,
+    // private router : Router,
+    private session: SessionService,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone
+  ) {
 
   }
+
+  ngOnInit() {
+    if (this.session.user){
+      this.user = this.session.user;
+    }
+
+    this.geocoder = new google.maps.Geocoder();
+
+
+    console.log("ngOnInit:", this.geocoder);
+    this.geoSecrets()
+
+    this.addresses.forEach(function(address){
+      console.log("res:", this.address)
+
+      // this.geocoder.geocode( { 'address': address.location}, function(results, status) {
+      //     //  if (status == 'OK') {
+      //        console.log("res:", address.location)
+            //  return results
+          // } else {
+            // console.log("err")
+          // }
+      // })
+    })
+
+  }
+
+  geoSecrets() {
+    this.secret.getSecretA()
+      .subscribe((secrets) => {
+        this.secrets = secrets
+        console.log("showSecrets function", this.secrets)
+        this.addresses.push(this.secrets)
+        console.log("showSecrets function", this.addresses)
+
+
+    });
+  }
+
+  // geocode(){
+  //   this.secrets.forEach(function(secret){
+  //     this.geocoder.geocode( { 'address': this.secret.location}, function(results, status) {
+  //          if (status == 'OK') {
+  //            console.log("res:", results)
+  //            return results
+  //         } else {
+  //           console.log("err")
+  //         }
+  //     })
+  //   })
+  // }
 
   mapClicked($event:any) {
     var newMarker = {

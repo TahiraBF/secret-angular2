@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule      } from '@angular/core';
-import { FormsModule   } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule    } from '@angular/forms';
 import { HttpModule    } from '@angular/http';
 import { RouterModule  } from '@angular/router';
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -11,6 +11,7 @@ import { IsAdminService} from './services/is-admin.service';
 import { ProfileService} from './services/profile.service';
 import { FileSelectDirective  } from "ng2-file-upload";
 import { AgmCoreModule } from 'angular2-google-maps/core';
+
 
 
 import { AppComponent } from './app.component';
@@ -62,7 +63,8 @@ import { MapComponent } from './map/map.component';
     FlashMessagesModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCWuTofnbPYobuakChc65kL_ITMOet0VEo'
+      apiKey: 'AIzaSyCWuTofnbPYobuakChc65kL_ITMOet0VEo',
+      libraries: ['places', 'geometry']
     })
   ],
   providers: [SessionService, ProfileService, SecretsService],
