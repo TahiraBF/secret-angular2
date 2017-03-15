@@ -6,7 +6,7 @@
       <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Search Secrets</label> -->
       <input type="text" [(ngModel)]="pattern" name="pattern" placeholder="Search by City" id="search" size="50" required> <br>
 
-      <select [(ngModel)]="searchMethod" name="searchMethod" class="custom-select mb-2 mr-sm-2 mb-sm-6" id="inlineFormCustomSelect" >
+      <select [(ngModel)]="searchMethod" name="searchMethod" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" >
         <option *ngFor="let field of ['Place to Eat', 'Place to Sleep', 'Activity', 'ViewPoint']" [ngValue]="field">{{field}}</option>
       </select>
       <!-- <div class="input-group"> -->
