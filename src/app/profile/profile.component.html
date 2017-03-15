@@ -1,7 +1,7 @@
 <div class="cont">
 
 <div class="profile-avatar">
-  <img *ngIf="user.profilePic" src="{{user.profilePic}}">
+  <img *ngIf="user.profilePic" src="{{user.profilePic}}" class="img-circle">
   <img *ngIf="!user.profilePic" src="http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-rainbow-unicorn.png">
 </div>
 </div>
@@ -22,8 +22,8 @@
     <div class="col-md-1 user-menu-btns pending">
         <div *ngIf=" user.role === 'Admin'" id="approvalBox" class="btn-group-vertical square" id="responsive">
             <a [routerLink]="['/api/profile/approve-users']" class="btn btn-block btn-default active">
-              Users Pending Approval
-            </a>
+              <i class="fa fa-hourglass-half" aria-hidden="true"></i>
+            </a> <br>
         </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class OneSecretComponent implements OnInit {
   secret: any;
+  shouldShow: Boolean = false;
 
   constructor(
     private secrets : SecretsService,
@@ -28,9 +29,19 @@ export class OneSecretComponent implements OnInit {
     this.secrets.viewOneSecret(id)
     .subscribe((secret) => {
       this.secret = secret;
-      console.log("secret is ", secret.user);
     }
   )};
+
+  updateSecret() {
+    this.secrets.editSecret(this.secret)
+    .subscribe((res) => {
+      console.log("secret to update is ", this.secret);
+    })
+  }
+
+  toggle() {
+    this.shouldShow = !this.shouldShow;
+  }
 
 
 

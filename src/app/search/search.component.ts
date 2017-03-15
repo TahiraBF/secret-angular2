@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   user: any;
   pattern: String;
   shouldShow: Boolean = true;
+  searchMethod: any;
 
 
   constructor(

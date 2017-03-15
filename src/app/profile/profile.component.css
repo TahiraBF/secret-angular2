@@ -22,9 +22,9 @@
 .profile-avatar img {
   width: 150px;
   /*height: 50%;*/
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+  /*-webkit-border-radius: 50%;
+  -moz-border-radius: 50%;*/
+  /*border-radius: 50%;*/
   border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -124,24 +124,24 @@ div.user-menu-container .thumbnail {
 }
 
 /* -- Vertical Button Group -- */
-div.user-menu-container .btn-group-vertical {
+/*div.user-menu-container .btn-group-vertical {
     display: block;
-}
-
+}*/
+/*
 div.user-menu-container .btn-group-vertical>a {
     padding: 20px 25px;
-    background-color: #46D8D2;
+    background-color: rgb(83,166,191);
     color: white;
     border-color: #fff;
-}
+}*/
 
-div.btn-group-vertical>a:hover {
+/*div.btn-group-vertical>a:hover {
     color: white;
     border-color: white;
-}
+}*/
 
 div.btn-group-vertical>a.active {
-    background: #FA396F;
+    background: #53a6bf;
     box-shadow: none;
     color: white;
 }
@@ -152,7 +152,7 @@ div.user-menu-btns {
     padding-bottom: 0;
 }
 
-div.user-menu-btns div.btn-group-vertical>a.active:after{
+/*div.user-menu-btns div.btn-group-vertical>a.active:after{
   content: '';
   position: absolute;
   left: 100%;
@@ -161,8 +161,8 @@ div.user-menu-btns div.btn-group-vertical>a.active:after{
   border-left: 0;
   border-bottom: 13px solid transparent;
   border-top: 13px solid transparent;
-  border-left: 10px solid #46D8D2;
-}
+  border-left: 10px solid rgb(83,166,191);
+}*/
 /* -- The main tab & content styling of the vertical buttons info-- */
 div.user-menu-content {
     color: #323232;

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(items: any[], field: string, value: string): any[] {
+  transform(items: any[], value: string, searchMethod: any): any[] {
      if (!items) {
        return [];
      }
@@ -15,6 +15,12 @@ export class FilterPipe implements PipeTransform {
        return items;
      }
 
-     return items.filter(it => it[field].match(new RegExp(value, 'i')));
+     let filteredSecrets = items.filter(it => it.location.match(new RegExp(value, 'i')));
+
+     if(searchMethod == undefined){
+       return filteredSecrets
+     } else {
+       return filteredSecrets.filter(it => it.what.match(new RegExp(searchMethod, 'i')));
+     }
    }
 }

@@ -49,4 +49,12 @@ export class SecretsService {
       .map((res) => res.json());
   }
 
+  editSecret(secret) {
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.SessionService.token });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(`${this.BASE_URL}/api/secrets`, secret, options)
+      .map((res) => res.json());
+
+  }
+
 }
