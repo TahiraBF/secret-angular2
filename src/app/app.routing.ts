@@ -37,9 +37,12 @@ export const routes: Routes = [
     ]
    },
     { path: 'api/profile/approve-users/:id', component: ApproveUserComponent, canActivate: [SessionService] },
-    { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
+    { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService],
+    children:[
+      { path: 'map', component: MapComponent, canActivate: [SessionService]}
+    ]
+  },
     { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
-    { path: 'api/secrets/map', component: MapComponent, canActivate: [SessionService]},
     { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService] },
     { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] },
     { path: 'api/secrets/:id', component: OneSecretComponent, canActivate: [SessionService] }

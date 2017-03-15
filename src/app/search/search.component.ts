@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
 
   secrets: any;
   user: any;
-  pattern1: String;
+  pattern: String;
   shouldShow: Boolean = true;
 
 

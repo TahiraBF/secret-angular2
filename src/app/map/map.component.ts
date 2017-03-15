@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { SessionService    } from '../services/session.service';
 import { SecretsService    } from '../services/secrets.service';
-import { AgmCoreModule, SebmGoogleMap, SebmGoogleMapMarker } from 'angular2-google-maps/core';
-import { MapsAPILoader } from 'angular2-google-maps/core';
+// import { AgmCoreModule } from 'angular2-google-maps/core';
+// import { MapsAPILoader } from 'angular2-google-maps/core';
 declare var google: any;
 
 
@@ -31,10 +31,8 @@ export class MapComponent implements OnInit {
 
   constructor(
     private secret : SecretsService,
-    // private router : Router,
     private session: SessionService,
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    // private mapsAPILoader: MapsAPILoader,
   ) {
 
   }
@@ -63,7 +61,7 @@ export class MapComponent implements OnInit {
                    that.marker.push(newMarker)
                    console.log("newMarker:", that.marker)
                 } else {
-                  console.log("error showing markers")
+                  console.log("error showing marker: "+ secret)
                 }
             })
         }

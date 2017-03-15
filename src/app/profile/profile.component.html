@@ -20,9 +20,10 @@
         <span class="btn-label"><i class="fa fa-pencil"></i></span>Update</button>
     </div>
     <div class="col-md-1 user-menu-btns pending">
+        <a [routerLink]="['/api/secrets/map']">View my secrets</a>
         <div *ngIf=" user.role === 'Admin'" id="approvalBox" class="btn-group-vertical square" id="responsive">
             <a [routerLink]="['/api/profile/approve-users']" class="btn btn-block btn-default active">
-              Users Pending Approval
+              Pending <br> Users
             </a>
         </div>
     </div>

@@ -4,6 +4,10 @@
     position: relative;
 }
 
+a {
+  z-index: auto;
+}
+
 .video {
   margin-top: 30px;
   width: 100%;
