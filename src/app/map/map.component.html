@@ -6,6 +6,7 @@
   [disableDefaultUI]=false
   [zoomControl]=false
   (mapClick)="mapClicked($event)"
+  [styles]="styles"
   >
   <sebm-google-map-marker
     *ngFor="let m of marker; let i = index"
