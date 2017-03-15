@@ -1,3 +1,15 @@
+#search-method select {
+  background: white;
+  width: 100px;
+  /*padding: 0px;*/
+  font-size: 16px;
+  line-height: 1;
+  /*border: 0;*/
+  /*border-radius: 0;*/
+  height: 34px;
+  /*-webkit-appearance: none;*/
+}
+
 div {
   font-family: Futura;
   font-weight: lighter;
@@ -13,6 +25,12 @@ div {
   background-size: cover;
   position: relative;
   box-sizing: border-box;
+}
+
+#search {
+  border-radius: 5px;
+  line-height: 1;
+  height: 40px;
 }
 
 .jumbotron {

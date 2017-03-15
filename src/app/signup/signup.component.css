@@ -23,3 +23,11 @@ h5 {
 .container {
   opacity: 0.95;
 }
+
+.well{
+  background-color: rgb(196, 216, 190);
+}
+
+#signup {
+  background-color: rgb(196, 216, 190);
+}

@@ -2,15 +2,17 @@
 <div class="jumbotron text-center">
   <h2>Search our secret places</h2>
   <form class="form-inline" >
-    <label class="mr-sm-2" for="inlineFormCustomSelect">Search By</label>
-    <select [(ngModel)]="searchMethod" id="search-method" name="searchMethod" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" >
-      <option *ngFor="let field of ['where', 'location', 'what']" [ngValue]="field">{{field}}</option>
-    </select>
-    <div class="input-group">
-      <input type="text" class="form-control" size="50" placeholder="Type to search... country/secret/place name" name="country" [(ngModel)]="pattern1" required>
-      <!-- <div class="input-group-btn">
-        <button type="button" class="btn btn-danger" (click)="toggle()">Search</button>
-      </div> -->
+    <div id="search-method">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Search By</label>
+      <select [(ngModel)]="searchMethod" name="searchMethod" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" >
+        <option *ngFor="let field of ['where', 'location', 'what']" [ngValue]="field">{{field}}</option>
+      </select>
+      <div class="input-group">
+        <input type="text" class="form-control" id="search" size="50" placeholder="Type to search... country/secret/place name" name="country" [(ngModel)]="pattern1" required>
+        <!-- <div class="input-group-btn">
+          <button type="button" class="btn btn-danger" (click)="toggle()">Search</button>
+        </div> -->
+      </div>
     </div>
   </form>
   <p>*{{pattern1}}*</p>

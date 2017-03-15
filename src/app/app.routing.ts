@@ -18,6 +18,7 @@ import { SearchComponent } from './search/search.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
 import { OneSecretComponent } from './one-secret/one-secret.component';
 import { PendingUserComponent } from './pending-user/pending-user.component';
+import { MapComponent } from './map/map.component';
 
 
 
@@ -38,6 +39,7 @@ export const routes: Routes = [
     { path: 'api/profile/approve-users/:id', component: ApproveUserComponent, canActivate: [SessionService] },
     { path: 'api/secrets', component: SecretsComponent, canActivate: [SessionService]},
     { path: 'api/secrets/add', component: AddSecretComponent, canActivate: [SessionService] },
+    { path: 'api/secrets/map', component: MapComponent, canActivate: [SessionService]},
     { path: 'api/secrets/featured', component: FeaturedSecretComponent, canActivate: [SessionService] },
     { path: 'api/secrets/search', component: SearchComponent, canActivate: [SessionService] },
     { path: 'api/secrets/:id', component: OneSecretComponent, canActivate: [SessionService] }
