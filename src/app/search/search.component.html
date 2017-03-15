@@ -3,38 +3,28 @@
   <h2>Search our secret places</h2>
   <form class="form-inline" >
     <div id="search-method">
-      <label class="mr-sm-2" for="inlineFormCustomSelect">Search By</label>
-      <select [(ngModel)]="searchMethod" name="searchMethod" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" >
-        <option *ngFor="let field of ['where', 'location', 'what']" [ngValue]="field">{{field}}</option>
+      <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Search Secrets</label> -->
+      <input type="text" [(ngModel)]="pattern" name="pattern" placeholder="Search by City" id="search" size="50" required> <br>
+
+      <select [(ngModel)]="searchMethod" name="searchMethod" class="custom-select mb-2 mr-sm-2 mb-sm-6" id="inlineFormCustomSelect" >
+        <option *ngFor="let field of ['Place to Eat', 'Place to Sleep', 'Activity', 'ViewPoint']" [ngValue]="field">{{field}}</option>
       </select>
-      <div class="input-group">
-        <input type="text" class="form-control" id="search" size="50" placeholder="Type to search... country/secret/place name" name="country" [(ngModel)]="pattern1" required>
+      <!-- <div class="input-group"> -->
+        <!-- <input type="text" class="form-control" id="search" size="50" placeholder="Type to search... country/secret/place name" name="country" [(ngModel)]="pattern1" required> -->
         <!-- <div class="input-group-btn">
           <button type="button" class="btn btn-danger" (click)="toggle()">Search</button>
         </div> -->
-      </div>
+      <!-- </div> -->
     </div>
   </form>
-  <p>*{{pattern1}}*</p>
 </div>
 </div>
 
-<!-- <div *ngIf="pattern1 shouldShow ">
-  <div *ngFor="let secret of secrets | filter: searchMethod: pattern1" class="item" class="col-md-6 col-md-offset-3" class="panel panel-default">
-    <div class="panel-body">
-      <h3> {{ secret.where }}     </h3>
-      <p> {{ secret.location }}   </p>
-      <p> {{ secret.what }}       </p>
-      <img [src]="secret.image" />
-      <a [routerLink]="['/api/secrets', secret._id]">Reveal Secret</a>
-    </div>
-  </div>
-</div> -->
 
-<div *ngIf="pattern1 shouldShow" class="w3-row-padding w3-padding-16 w3-center" id="food">
-  <div class="w3-quarter" *ngFor="let secret of secrets | filter: searchMethod: pattern1" >
+<div *ngIf="pattern shouldShow" class="w3-row-padding w3-padding-16 w3-center" id="food">
+  <div class="w3-quarter" *ngFor="let secret of secrets | filter: 'location':pattern" >
     <img [src]="secret.image" style="width:100%">
-      <h3> {{ secret.where }} </h3>
+      <h3> {{ secret.location }} </h3>
       <p> {{ secret.location }} | {{secret.what}} </p>
       <a [routerLink]="['/api/secrets', secret._id]"> View Secret </a>
   </div>
