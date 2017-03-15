@@ -22,14 +22,7 @@ export class MapComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
   //marker//
-  marker: marker[] = [
-    {
-      name: "Company1",
-      lat: 51.678418,
-      lng: 7.809007,
-      draggable: true
-    },
-  ];
+  marker: marker[] = [];
 
   user;
   secrets;
@@ -53,25 +46,24 @@ export class MapComponent implements OnInit {
 
     this.geocoder = new google.maps.Geocoder();
     console.log("ngOnInit:", this.geocoder);
-
+    let that = this
     this.secret.getSecretA()
       .subscribe((secrets) => {
         this.secrets = secrets
         console.log("showSecrets function", this.secrets)
         for (let secret of secrets){
           console.log("secret", secret.location)
-          console.log("this.marker", this.marker)
           this.geocoder.geocode( { 'address': secret.location}, function(results, status) {
             if (status == 'OK') {
                    console.log("res:", results)
                    var newMarker = {
                      name: results[0].address_components[0].short_name,
-                     lat: results[0].geometry.viewport.b.b,
-                     lng: results[0].geometry.viewport.f.f,
+                     lat: results[0].geometry.viewport.f.f,
+                     lng: results[0].geometry.viewport.b.b,
                      draggable: false
                    }
-                  //  this.marker.push(newMarker)
-                   console.log("this.marker2", this.marker)
+                   that.marker.push(newMarker)
+                   console.log("this.marker2", that.marker)
                 } else {
                   console.log("err")
                 }
@@ -82,15 +74,15 @@ export class MapComponent implements OnInit {
 
   }
 
-  mapClicked($event:any) {
-    var newMarker = {
-      name: 'Untitled',
-      lat: $event.coords.lat,
-      lng: $event.coords.lng,
-      draggable: false
-    }
-    this.marker.push(newMarker);
-  }
+  // mapClicked($event:any) {
+  //   var newMarker = {
+  //     name: 'Untitled',
+  //     lat: $event.coords.lat,
+  //     lng: $event.coords.lng,
+  //     draggable: false
+  //   }
+  //   this.marker.push(newMarker);
+  // }
 
   markerDragEnd(marker:any, $event:any){
 
