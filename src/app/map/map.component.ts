@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { SessionService    } from '../services/session.service';
 import { SecretsService    } from '../services/secrets.service';
-import { AgmCoreModule, SebmGoogleMap, SebmGoogleMapMarker } from 'angular2-google-maps/core';
-import { MapsAPILoader } from 'angular2-google-maps/core';
+// import { AgmCoreModule } from 'angular2-google-maps/core';
+// import { MapsAPILoader } from 'angular2-google-maps/core';
 declare var google: any;
 
 
@@ -17,7 +17,7 @@ declare var google: any;
 export class MapComponent implements OnInit {
 
   //zoom//
-  zoom : number = 7;
+  zoom : number = 2;
   //Start position//
   lat: number;
   lng: number;
@@ -31,10 +31,8 @@ export class MapComponent implements OnInit {
 
   constructor(
     private secret : SecretsService,
-    // private router : Router,
     private session: SessionService,
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    // private mapsAPILoader: MapsAPILoader,
   ) {
 
   }
@@ -47,17 +45,13 @@ export class MapComponent implements OnInit {
     this.geolocate()
 
     this.geocoder = new google.maps.Geocoder();
-    console.log("ngOnInit:", this.geocoder);
     let that = this
     this.secret.getSecretA()
       .subscribe((secrets) => {
         this.secrets = secrets
-        console.log("showSecrets function", this.secrets)
         for (let secret of secrets){
-          console.log("secret", secret.location)
           this.geocoder.geocode( { 'address': secret.location}, function(results, status) {
             if (status == 'OK') {
-                   console.log("res:", results)
                    var newMarker = {
                      name: results[0].address_components[0].short_name,
                      lat: results[0].geometry.viewport.f.f,
@@ -65,9 +59,9 @@ export class MapComponent implements OnInit {
                      draggable: false
                    }
                    that.marker.push(newMarker)
-                   console.log("this.marker2", that.marker)
+                   console.log("newMarker:", that.marker)
                 } else {
-                  console.log("err")
+                  console.log("error showing marker: "+ secret)
                 }
             })
         }
@@ -104,30 +98,20 @@ export class MapComponent implements OnInit {
   }
 
   geolocate() {
-
-    // if(navigator.geolocation) {
-
-        // var map;
-        //
-        // var mapOptions = {
-        //     zoom: 15,
-        //     mapTypeId: google.maps.MapTypeId.ROADMAP
-        // };
-
-        // map = new google.maps.Map(document.getElementById('google_canvas'), mapOptions);
+    if(navigator.geolocation){
         let that = this;
         navigator.geolocation.getCurrentPosition(function(position) {
 
             var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                 that.lat = geolocate.lat();
                 that.lng = geolocate.lng();
-                console.log("latlng:", that.lat, that.lng)
+                console.log("Current latlng:", that.lat, that.lng)
         })
-    // else {
-    //     this.lat = 0;
-    //     this.lng = 0;
-    //     // document.getElementById('google_canvas').innerHTML = 'No Geolocation Support.';
-    // }
+    } else {
+        this.lat = 0;
+        this.lng = 0;
+        console.log("else nav")
+    }
 
 }
 
