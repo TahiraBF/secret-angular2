@@ -17,7 +17,7 @@ declare var google: any;
 export class MapComponent implements OnInit {
 
   //zoom//
-  zoom : number = 7;
+  zoom : number = 2;
   //Start position//
   lat: number = 51.678418;
   lng: number = 7.809007;
@@ -34,8 +34,6 @@ export class MapComponent implements OnInit {
   user;
   secrets;
   geocoder;
-  addresses: Array<Object> = [];
-
   // geocoder = new google.maps.Geocoder();
 
   constructor(
@@ -54,50 +52,35 @@ export class MapComponent implements OnInit {
     }
 
     this.geocoder = new google.maps.Geocoder();
-
-
     console.log("ngOnInit:", this.geocoder);
-    this.geoSecrets()
 
-    this.addresses.forEach(function(address){
-      console.log("res:", this.address)
-
-      // this.geocoder.geocode( { 'address': address.location}, function(results, status) {
-      //     //  if (status == 'OK') {
-      //        console.log("res:", address.location)
-            //  return results
-          // } else {
-            // console.log("err")
-          // }
-      // })
-    })
-
-  }
-
-  geoSecrets() {
     this.secret.getSecretA()
       .subscribe((secrets) => {
         this.secrets = secrets
         console.log("showSecrets function", this.secrets)
-        this.addresses.push(this.secrets)
-        console.log("showSecrets function", this.addresses)
-
+        for (let secret of secrets){
+          console.log("secret", secret.location)
+          console.log("this.marker", this.marker)
+          this.geocoder.geocode( { 'address': secret.location}, function(results, status) {
+            if (status == 'OK') {
+                   console.log("res:", results)
+                   var newMarker = {
+                     name: results[0].address_components[0].short_name,
+                     lat: results[0].geometry.viewport.b.b,
+                     lng: results[0].geometry.viewport.f.f,
+                     draggable: false
+                   }
+                  //  this.marker.push(newMarker)
+                   console.log("this.marker2", this.marker)
+                } else {
+                  console.log("err")
+                }
+            })
+        }
 
     });
-  }
 
-  // geocode(){
-  //   this.secrets.forEach(function(secret){
-  //     this.geocoder.geocode( { 'address': this.secret.location}, function(results, status) {
-  //          if (status == 'OK') {
-  //            console.log("res:", results)
-  //            return results
-  //         } else {
-  //           console.log("err")
-  //         }
-  //     })
-  //   })
-  // }
+  }
 
   mapClicked($event:any) {
     var newMarker = {
