@@ -1,5 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+
+#req html
+/src/app/req.html*
+
 # compiled output
 /dist
 /tmp
