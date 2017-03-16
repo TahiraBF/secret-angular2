@@ -27,7 +27,7 @@ export class AddSecretComponent implements OnInit {
     what        : " ",
     description : " ",
     tips        : " ",
-    when        : " "
+    when        : Date(),
   };
 
   // latitude: number;
