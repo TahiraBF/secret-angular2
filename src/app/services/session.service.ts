@@ -14,7 +14,9 @@ export class SessionService implements CanActivate {
   public user: any;
   isAuth: EventEmitter<any> = new EventEmitter();
 
-	BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'https://the-secret-place.herokuapp.com';
+	// BASE_URL: string = 'http://localhost:3000';
+
 
   constructor(
     private router: Router,
@@ -46,6 +48,7 @@ export class SessionService implements CanActivate {
           // store username and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('token', token );
           localStorage.setItem('user', JSON.stringify(response.user) );
+
           this.isAuth.emit(true);
           // return true to indicate successful login
           return true;

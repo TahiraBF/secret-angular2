@@ -7,23 +7,18 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { routes        } from './app.routing';
 import { SessionService} from './services/session.service';
 import { SecretsService} from './services/secrets.service';
-import { IsAdminService} from './services/is-admin.service';
 import { ProfileService} from './services/profile.service';
+// import { GeocodeService} from './services/geocode.service';
 import { FileSelectDirective  } from "ng2-file-upload";
 import { AgmCoreModule } from 'angular2-google-maps/core';
-
-
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
-import { AdminComponent } from './admin/admin.component';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { SecretsComponent } from './secrets/secrets.component';
-
-
 import { AddSecretComponent } from './add-secret/add-secret.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { SearchComponent } from './search/search.component';
@@ -42,7 +37,6 @@ import { MapComponent } from './map/map.component';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    AdminComponent,
     ApproveUserComponent,
     SecretsComponent,
     AddSecretComponent,

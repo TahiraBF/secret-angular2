@@ -9,7 +9,9 @@ declare let google:any;
 
 @Injectable()
 export class GeocodeService {
-  BASE_URL: string = 'http://localhost:3000'
+  // BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'https://the-secret-place.herokuapp.com';
+
 
   geocoder: google.maps.Geocoder;
 

@@ -22,7 +22,7 @@ export class AddSecretComponent implements OnInit {
   user: any;
 
   newSecret = {
-    where       : " ",
+    title       : " ",
     location    : " ",
     what        : " ",
     description : " ",
@@ -100,7 +100,7 @@ export class AddSecretComponent implements OnInit {
 
   addNewSecret() {
     this.uploader.onBuildItemForm = (item, form) => {
-      form.append('where', this.newSecret.where);
+      form.append('title', this.newSecret.title);
       form.append('location', this.newSecret.location);
       form.append('what', this.newSecret.what);
       form.append('description', this.newSecret.description);

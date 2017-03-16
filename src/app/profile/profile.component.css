@@ -29,7 +29,13 @@
 }
 
 .pending {
-  left: 90% ;
+  left: 80% ;
+  top: -200px;
+  /*float: right;*/
+}
+
+.edit {
+  padding: 20px;
 }
 
 /***/

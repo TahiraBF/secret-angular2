@@ -7,22 +7,16 @@ import { SignupComponent  } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SecretsComponent } from './secrets/secrets.component';
 import { SessionService   } from './services/session.service';
-import { IsAdminService   } from './services/is-admin.service';
 import { ProfileService   } from './services/profile.service';
 import { SecretsService   } from './services/secrets.service';
 import { ApproveUserComponent } from './approve-user/approve-user.component';
 import { AddReferralComponent } from './add-referral/add-referral.component';
 import { AddSecretComponent } from './add-secret/add-secret.component';
-import { AdminComponent } from './admin/admin.component';
 import { SearchComponent } from './search/search.component';
 import { FeaturedSecretComponent } from './featured-secret/featured-secret.component';
 import { OneSecretComponent } from './one-secret/one-secret.component';
 import { PendingUserComponent } from './pending-user/pending-user.component';
 import { MapComponent } from './map/map.component';
-
-
-
-
 
 
 export const routes: Routes = [

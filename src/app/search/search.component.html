@@ -1,10 +1,10 @@
 <div class="cont">
 <div class="jumbotron text-center">
-  <h2>Search our secret places</h2>
+  <h2>Find A Secret Place</h2>
   <form class="form-inline" >
     <div id="search-method">
       <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Search Secrets</label> -->
-      <input type="text" [(ngModel)]="pattern" name="pattern" placeholder="Search by City" id="search" size="50" required> <br>
+      <input type="text" [(ngModel)]="pattern" name="pattern" placeholder=" Search by City/Region/Country" id="search" size="50" required> <br>
       <!-- <div class="input-group"> -->
         <!-- <input type="text" class="form-control" id="search" size="50" placeholder="Type to search... country/secret/place name" name="country" [(ngModel)]="pattern1" required> -->
         <!-- <div class="input-group-btn">
@@ -13,6 +13,7 @@
       <!-- </div> -->
     </div>
   </form>
+  <label for="searchMethod"><h5>Filter search by</h5></label>
   <select [(ngModel)]="searchMethod" name="searchMethod" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" >
     <option *ngFor="let field of ['Place to Eat', 'Place to Sleep', 'Activity', 'ViewPoint']" [ngValue]="field">{{field}}</option>
   </select>

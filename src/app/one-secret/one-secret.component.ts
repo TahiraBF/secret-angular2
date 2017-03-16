@@ -12,10 +12,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class OneSecretComponent implements OnInit {
   secret: any;
   shouldShow: Boolean = false;
+  user;
 
   constructor(
     private secrets : SecretsService,
-    // private router  : Router,
+    private session  : SessionService,
     private route   : ActivatedRoute
   ) { }
 
@@ -23,6 +24,13 @@ export class OneSecretComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.showSecret(params['id']);
     })
+    if (this.session.user){
+      this.user = this.session.user._id;
+      console.log("user:", this.user)
+      console.log("sessionuser:", this.session.user)
+
+    }
+
   }
 
   showSecret(id) {
