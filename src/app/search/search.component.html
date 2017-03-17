@@ -24,7 +24,7 @@
 <div *ngIf="pattern shouldShow" class="w3-row-padding w3-padding-16 w3-center" id="food">
   <div class="w3-quarter" *ngFor="let secret of secrets | filter:pattern:searchMethod" >
     <img [src]="secret.image" style="width:100%">
-      <h3> {{ secret.location }} </h3>
+      <h3> {{ secret.title }} </h3>
       <p> {{ secret.location }} | {{secret.what}} </p>
       <a [routerLink]="['/api/secrets', secret._id]"> View Secret </a>
   </div>
