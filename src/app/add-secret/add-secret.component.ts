@@ -14,7 +14,8 @@ declare var google: any;
 })
 export class AddSecretComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-   url: `http://localhost:3000/api/secrets/add`,
+  //  url: `http://localhost:3000/api/secrets/add`,
+   url: `https://the-secret-place.herokuapp.com/api/secrets/add`,
    authToken: `JWT ${this.session.token}`
     });
 
@@ -27,7 +28,7 @@ export class AddSecretComponent implements OnInit {
     what        : " ",
     description : " ",
     tips        : " ",
-    when        : Date(),
+    when        : " ",
   };
 
   // latitude: number;
