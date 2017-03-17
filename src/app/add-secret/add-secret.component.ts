@@ -31,9 +31,8 @@ export class AddSecretComponent implements OnInit {
     location    : " ",
     what        : " ",
     description : " ",
-    tips        : " ",
-    when        : this.date
-  };
+    tips        : " "
+    };
 
   // latitude: number;
   // longitude: number;
