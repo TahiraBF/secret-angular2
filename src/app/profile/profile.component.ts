@@ -13,8 +13,8 @@ import { FileUploader           } from "ng2-file-upload";
 })
 export class ProfileComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    // url: `http://localhost:3000/api/profile`,
-    url: `https://the-secret-place.herokuapp.com/api/profile`,
+    url: `http://localhost:3000/api/profile`,
+    // url: `https://the-secret-place.herokuapp.com/api/profile`,
     authToken: `JWT ${this.session.token}`
   });
 

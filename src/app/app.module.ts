@@ -11,6 +11,8 @@ import { ProfileService} from './services/profile.service';
 // import { GeocodeService} from './services/geocode.service';
 import { FileSelectDirective  } from "ng2-file-upload";
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { DatePickerModule } from 'ng2-datepicker';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -55,6 +57,7 @@ import { MapComponent } from './map/map.component';
     FormsModule,
     HttpModule,
     FlashMessagesModule,
+    DatePickerModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCWuTofnbPYobuakChc65kL_ITMOet0VEo',

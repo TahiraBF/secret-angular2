@@ -7,8 +7,8 @@ import { SessionService   } from './session.service';
 
 @Injectable()
 export class SecretsService {
-  // BASE_URL: string = 'http://localhost:3000';
-  BASE_URL: string = 'https://the-secret-place.herokuapp.com';
+  BASE_URL: string = 'http://localhost:3000';
+  // BASE_URL: string = 'https://the-secret-place.herokuapp.com';
 
   constructor(
     private http: Http,

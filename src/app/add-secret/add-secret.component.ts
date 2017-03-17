@@ -4,6 +4,7 @@ import { SecretsService    } from '../services/secrets.service';
 import { Router            } from '@angular/router';
 import { FileUploader      } from "ng2-file-upload";
 import { FormControl } from "@angular/forms";
+import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { MapsAPILoader } from 'angular2-google-maps/core';
 declare var google: any;
 
@@ -14,8 +15,8 @@ declare var google: any;
 })
 export class AddSecretComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-  //  url: `http://localhost:3000/api/secrets/add`,
-   url: `https://the-secret-place.herokuapp.com/api/secrets/add`,
+   url: `http://localhost:3000/api/secrets/add`,
+  //  url: `https://the-secret-place.herokuapp.com/api/secrets/add`,
    authToken: `JWT ${this.session.token}`
     });
 
@@ -28,13 +29,14 @@ export class AddSecretComponent implements OnInit {
     what        : " ",
     description : " ",
     tips        : " ",
-    when        : " ",
+    when        : DateModel,
   };
 
   // latitude: number;
   // longitude: number;
   searchControl: FormControl;
   // zoom: number;
+  options: DatePickerOptions;
 
   feedback: string;
 
@@ -48,7 +50,9 @@ export class AddSecretComponent implements OnInit {
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
 
-  ) { }
+  ) {
+    this.options = new DatePickerOptions();
+ }
 
   ngOnInit() {
     if (this.session.user){
@@ -110,6 +114,9 @@ export class AddSecretComponent implements OnInit {
 
     };
     this.uploader.uploadAll();
+  }
+
+  calendar() {
   }
 
 

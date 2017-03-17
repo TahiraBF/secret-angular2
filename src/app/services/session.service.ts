@@ -14,8 +14,8 @@ export class SessionService implements CanActivate {
   public user: any;
   isAuth: EventEmitter<any> = new EventEmitter();
 
-  BASE_URL: string = 'https://the-secret-place.herokuapp.com';
-	// BASE_URL: string = 'http://localhost:3000';
+  // BASE_URL: string = 'https://the-secret-place.herokuapp.com';
+	BASE_URL: string = 'http://localhost:3000';
 
 
   constructor(
