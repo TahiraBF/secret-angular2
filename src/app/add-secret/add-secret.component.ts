@@ -23,20 +23,23 @@ export class AddSecretComponent implements OnInit {
   secrets: any;
   user: any;
 
+  options: DatePickerOptions;
+  date: DateModel;
+
   newSecret = {
     title       : " ",
     location    : " ",
     what        : " ",
     description : " ",
     tips        : " ",
-    when        : DateModel,
+    when        : this.date
   };
 
   // latitude: number;
   // longitude: number;
   searchControl: FormControl;
   // zoom: number;
-  options: DatePickerOptions;
+
 
   feedback: string;
 
@@ -110,10 +113,11 @@ export class AddSecretComponent implements OnInit {
       form.append('what', this.newSecret.what);
       form.append('description', this.newSecret.description);
       form.append('tips', this.newSecret.tips);
-      form.append('when', this.newSecret.when)
+      form.append('when', this.date.formatted)
 
     };
     this.uploader.uploadAll();
+    console.log("date:", this.date.formatted)
   }
 
   calendar() {
